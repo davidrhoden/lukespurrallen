@@ -139,3 +139,12 @@ html {
     background: url(../../assets/albumArt/170427PotholeHeart1000.jpg) center center no-repeat;
     background-size: cover;
 }
+
+.albumart {
+    margin: 2px;
+}
+
+.flex {
+    display: flex;
+    flex-wrap: wrap;
+}

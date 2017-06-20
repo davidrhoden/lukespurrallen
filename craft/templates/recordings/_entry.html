@@ -11,7 +11,7 @@
 {% block content %}
 	<article>
 		{% for asset in entry.albumArt %}
-			<img src="{{ asset.getUrl() }}" />
+			<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
 		{% endfor %}
 		<h1>{{ entry.title }}</h1>
 		{{ entry.body }}

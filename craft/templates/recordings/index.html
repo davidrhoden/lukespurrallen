@@ -11,14 +11,15 @@
 
 {% block content %}
 	<h1>Recordings</h1>
-
+	<div class="flex">
 	{% for entry in craft.entries.section('recordings').find() %}
 		<article>
-			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3>
+			<a href="{{ entry.url }}">
 			{% for asset in entry.albumArt %}
-    			<img src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
 			{% endfor %}
+			</a>
 		</article>
 	{% endfor %}
-
+	</div>
 {% endblock %}
