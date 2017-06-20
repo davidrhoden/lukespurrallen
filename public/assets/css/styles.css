@@ -15,7 +15,7 @@ body {
 }
 
 html { 
-    background: url(../photos/luke_mirror_gray.jpg) no-repeat center center fixed; 
+    /*background: url(../images/photos/luke_mirror_gray.jpg) no-repeat center center fixed; */
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -136,7 +136,7 @@ html {
 }
 
 .fullscreen {
-    background: url(../../assets/albumArt/170427PotholeHeart1000.jpg) center center no-repeat;
+    background: url(../../assets/images/albumArt/170427PotholeHeart1000.jpg) center center no-repeat;
     background-size: cover;
 }
 

@@ -20,5 +20,8 @@
 		<h1>{{ entry.title }}</h1>
 		<p>Posted on {{ entry.postDate.format('F d, Y') }}</p>
 		{{ entry.body }}
+		{% for asset in entry.albumArt %}
+			<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+		{% endfor %}
 	</article>
 {% endblock %}
