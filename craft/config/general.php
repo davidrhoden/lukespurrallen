@@ -13,6 +13,7 @@ return array(
 	'siteUrl' => null,
 
 	// Environment-specific variables (see https://craftcms.com/docs/multi-environment-configs#environment-specific-variables)
+	'generateTransformsBeforePageLoad' => true,
 	'environmentVariables' => array(),
 
 	// Default Week Start Day (0 = Sunday, 1 = Monday...)
@@ -28,6 +29,6 @@ return array(
 	'cpTrigger' => 'admin',
 
 	// Dev Mode (see https://craftcms.com/support/dev-mode)
-	'devMode' => false,
+	'devMode' => true,
 
 );

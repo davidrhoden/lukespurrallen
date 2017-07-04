@@ -10,11 +10,14 @@
 
 {% block content %}
 	<article>
-		{% for asset in entry.poster %}
+	hello
+		<p>{{ entry.date }}</p>
+		{# <h1>{{ entry.venue.first() }}</h1> #}
+		<p>{{ entry.lineUp }}</p>
+		<p>{{ entry.time }}</p>
+		<p>{{ entry.body }}</p>
+{# 		{% for asset in entry.poster %}
 			<img src="{{ asset.getUrl() }}" />
-		{% endfor %}
-		<h1>{{ entry.title }}</h1>
-		{{ entry.body }}
-		<p>{{ entry.venue }}</p>
+		{% endfor %}	 #}
 	</article>
 {% endblock %}

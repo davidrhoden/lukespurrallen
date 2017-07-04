@@ -104,7 +104,6 @@ html {
 
 #content {
     display: block;
-    padding: 25px;
     background: #fff;
 }
 
@@ -135,11 +134,6 @@ html {
     width: 16px;
 }
 
-.fullscreen {
-    background: url(../../assets/images/albumArt/170427PotholeHeart1000.jpg) center center no-repeat;
-    background-size: cover;
-}
-
 .albumart {
     margin: 2px;
 }
@@ -147,4 +141,30 @@ html {
 .flex {
     display: flex;
     flex-wrap: wrap;
+}
+
+.flex.center {
+    justify-content: center;
+}
+
+.flex.space-between {
+    justify-content: space-between;
+}
+
+.full-width {
+    width: 100%;
+}
+
+.home_block {
+    border: 1px dotted brown;
+    padding: 1rem;
+}
+
+.half {
+    width: 50%;
+}
+
+.third {
+    width: 33%;
+};
 }

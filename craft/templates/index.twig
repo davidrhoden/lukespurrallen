@@ -20,11 +20,25 @@
 {% extends "_layout" %}
 
 {% block content %}
+
+{% include '_includes/_show_fields' %}
 <div class="fullscreen">
-	<h1>{{ entry.title }}</h1>
-	{{ entry.body }}
-	{% for asset in entry.photos %}
-		<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
-	{% endfor %}
+	{% set image = entry.photos.first() %}
+		<img src="{{ image.getUrl('twelveHundredEightyPxWide') }}" />
+		<div class="flex full-width space-between">
+		<div class="home_block third">
+			{{ entry.body }}
+		</div>
+		<div class="home_block third">
+		</div>
+		<div class="home_block third">
+			{% set record = entry.record.first() %}
+			{% for asset in record.albumArt %}
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+			{% endfor %}
+			{# <img src="{{ record.albumArt.getUrl('threeHundredPxSquare') }}" /> #}
+		</div>
+
 	</div>
+</div>
 {% endblock %}
