@@ -11,7 +11,7 @@
 body {
     margin: 0px;
     font-family: 'Domine', serif;
-    background: #fff;
+    background: url(../images/site/textured_paper.png) left top repeat;
 }
 
 html { 
@@ -50,7 +50,7 @@ html {
 #header {
 	display: flex;
 	justify-content: space-between;
-    padding: 25px;
+    padding: 25px 0;
     width: 100%;
 }
 
@@ -104,7 +104,6 @@ html {
 
 #content {
     display: block;
-    background: #fff;
 }
 
 #content h1 {
@@ -155,9 +154,11 @@ html {
     width: 100%;
 }
 
-.home_block {
+.home_block, .show-block, .recording-block {
+    background: rgba(255,255,255, .8);
     border: 1px dotted brown;
-    padding: 1rem;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
 }
 
 .half {
@@ -165,6 +166,9 @@ html {
 }
 
 .third {
-    width: 33%;
-};
+    width: 32%;
+}
+
+.text-align-center {
+    text-align: center;
 }

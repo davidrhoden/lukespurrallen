@@ -1,0 +1,23 @@
+{#
+ # Press entry template
+ # -------------------
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+
+{% block content %}
+	<article>
+		<a href="{{ entry.url }}">
+			{% for asset in entry.pressPhotos %}
+				<img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
+			{% endfor %}<br>
+			{{ entry.title }}<br>
+			{{ entry.author }}<br>
+			{{ entry.publication }} {{ entry.publicationDate | date("M d, Y") }}
+			{{ entry.body }}<br>
+		</a>
+	</article>
+{% endblock %}

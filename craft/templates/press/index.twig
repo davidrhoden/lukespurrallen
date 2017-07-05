@@ -1,0 +1,28 @@
+{#
+ # Press index template
+ # -------------------
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+{% set title = "Luke Spurr Allen : Press" %}
+
+{% block content %}
+	<h1>Recordings</h1>
+	<div class="flex">
+	{% for entry in craft.entries.section('press').find() %}
+		<article>
+			<a href="{{ entry.url }}">
+			{% for asset in entry.pressPhotos %}
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+			{% endfor %}
+			{{ entry.title }}<br>
+			{{ entry.author }}<br>
+			{{ entry.publication }} {{ entry.publicationDate }}
+			</a>
+		</article>
+	{% endfor %}
+	</div>
+{% endblock %}

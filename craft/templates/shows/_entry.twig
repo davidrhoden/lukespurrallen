@@ -9,6 +9,7 @@
 {% extends "_layout" %}
 
 {% block content %}
+	<div class="show-block">
 	<article>
 		<p>{{ entry.date | date("M d, Y")}}</p>
 		<h1>{{ entry.venue.first() }}</h1>
@@ -19,4 +20,5 @@
 			<img src="{{ asset.getUrl() }}" />
 		{% endfor %}	 #}
 	</article>
+	</div>
 {% endblock %}

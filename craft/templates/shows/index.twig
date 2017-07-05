@@ -18,8 +18,11 @@
 
 	{% for entry in craft.entries.section('shows').find() %}
 		<article>
-			<p> {# entry.date.format('F d, Y') #}{{ entry.date }}</p>
-			<h3><a href="{{ entry.url }}"> {{ entry.title }}</a></h3>
+			<p>{{ entry.date | date("M d, Y") }}</p>
+			<h3><a href="{{ entry.url }}"> 
+			{{ entry.venue.first() }}
+			{{ entry.lineUp }}
+			</a></h3>
 		</article>
 	{% endfor %}
 {% endblock %}

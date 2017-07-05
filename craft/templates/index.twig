@@ -21,7 +21,6 @@
 
 {% block content %}
 
-{% include '_includes/_show_fields' %}
 <div class="fullscreen">
 	{% set image = entry.photos.first() %}
 		<img src="{{ image.getUrl('twelveHundredEightyPxWide') }}" />
@@ -30,10 +29,12 @@
 			{{ entry.body }}
 		</div>
 		<div class="home_block third">
+			<div class="text-align-center">
 			{% set record = entry.record.first() %}
 			{% for asset in record.albumArt %}
-    			<img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+    			<p><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></p>
 			{% endfor %}
+			</div>
 		</div>
 		<div class="home_block third">
 		
