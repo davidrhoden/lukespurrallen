@@ -30,13 +30,21 @@
 			{{ entry.body }}
 		</div>
 		<div class="home_block third">
-		</div>
-		<div class="home_block third">
 			{% set record = entry.record.first() %}
 			{% for asset in record.albumArt %}
     			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
 			{% endfor %}
-			{# <img src="{{ record.albumArt.getUrl('threeHundredPxSquare') }}" /> #}
+		</div>
+		<div class="home_block third">
+			{% set nextshow = entry.show.first() %}
+			{# {{ nextshow.venue }}<br> #}
+			{{ nextshow }}<br>
+			{{ nextshow.date }}
+			{{ nextshow.time }}<br>
+{# 			{% for asset in record.albumArt %}
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+			{% endfor %} #}
+
 		</div>
 
 	</div>
