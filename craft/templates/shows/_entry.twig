@@ -10,10 +10,10 @@
 
 {% block content %}
 	<article>
-		<p>{{ entry.date }}</p>
-		{# <h1>{{ entry.venue.first() }}</h1> #}
+		<p>{{ entry.date | date("M d, Y")}}</p>
+		<h1>{{ entry.venue.first() }}</h1>
 		<p>{{ entry.lineUp }}</p>
-		<p>{{ entry.time }}</p>
+		<p>{{ entry.time |date("g:i a")}}</p>
 		<p>{{ entry.body }}</p>
 {# 		{% for asset in entry.poster %}
 			<img src="{{ asset.getUrl() }}" />

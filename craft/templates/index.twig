@@ -32,18 +32,25 @@
 		<div class="home_block third">
 			{% set record = entry.record.first() %}
 			{% for asset in record.albumArt %}
-    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
 			{% endfor %}
 		</div>
 		<div class="home_block third">
-			{% set nextshow = entry.show.first() %}
-			{# {{ nextshow.venue }}<br> #}
-			{{ nextshow }}<br>
-			{{ nextshow.date }}
-			{{ nextshow.time }}<br>
-{# 			{% for asset in record.albumArt %}
-    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
-			{% endfor %} #}
+		
+			{# Pull in the three latest Work entries #}
+			{% for showEntry in craft.entries.section('shows').limit(2) %}
+					<a href="{{ showEntry.url }}" class="services-entry-wrap">
+{# 						{% set image = workEntry.featuredThumb.first() %}
+						{% if image %}
+							<img src="{{ image.getUrl('thumb') }}" alt="image.title"/>
+						{% endif %} #}
+
+						<h3>{{ showEntry.date | date("M d, Y") }}<br>
+						{{ showEntry.venue.first() }}</h3>
+						{{ showEntry.lineUp }}
+						{{ showEntry.time | date("g:i a") }}
+					</a>
+			{% endfor %}
 
 		</div>
 
