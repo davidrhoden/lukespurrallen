@@ -23,12 +23,13 @@
 
 <div class="fullscreen">
 
-<div class="slider js_slider">
+<div class="slider js_slider js_simple">
 	<div class="frame js_frame">
 	    <ul class="slides js_slides">
 	        <li class="js_slide">
-	            {% set image = entry.photos.first() %}
-				<img src="{{ image.getUrl('twelveHundredEightyPxWide') }}" />
+	        	{% for asset in entry.photos %}
+					<img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
+				{% endfor %}
 			</li>
 	    </ul>
 	    <span class="js_prev prev">
@@ -74,5 +75,15 @@
 
 	</div>
 </div>
-<<script src="../assets/js/lory.min.js"></script>
+<script src="../assets/js/lory.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+        var simple = document.querySelector('.js_simple');
+
+        lory(simple, {
+            infinite: 1
+        });
+    });
+</script>
+
 {% endblock %}
