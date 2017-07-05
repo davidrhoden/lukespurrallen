@@ -161,6 +161,15 @@ html {
     padding: 1.5rem;
 }
 
+.recording-text {
+    margin: 0;
+    padding: 0 1.5rem;
+}
+
+.recording-text h1 {
+    margin: 0;
+}
+
 .half {
     width: 50%;
 }

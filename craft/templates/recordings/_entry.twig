@@ -10,13 +10,28 @@
 
 {% block content %}
 	<div class="recording-block">
-	<article>
+	<article class="flex">
+		<div>
 		{% for asset in entry.albumArt %}
 			<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
 		{% endfor %}
-		<h2>{{ entry.title }}</h2>
+		</div>
+		<div class="recording-text">
+		<h1>{{ entry.title }}</h1>
 		<p>{{ entry.body }}</p>
 		<p>{{ entry.downloadLink }}</p>
+		</div>
 	</article>
+	</div>
+	<div class="flex space-between">
+	{% for entry in craft.entries.section('recordings').find() %}
+		<article>
+			<a href="{{ entry.url }}">
+			{% for asset in entry.albumArt %}
+    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+			{% endfor %}
+			</a>
+		</article>
+	{% endfor %}
 	</div>
 {% endblock %}

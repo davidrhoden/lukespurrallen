@@ -11,7 +11,7 @@
 
 {% block content %}
 	<h1>Recordings</h1>
-	<div class="flex">
+	<div class="flex space-between">
 	{% for entry in craft.entries.section('recordings').find() %}
 		<article>
 			<a href="{{ entry.url }}">
