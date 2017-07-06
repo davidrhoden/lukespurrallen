@@ -10,19 +10,21 @@
 {% set title = "Luke Spurr Allen : Press" %}
 
 {% block content %}
-	<h1>Recordings</h1>
-	<div class="flex">
-	{% for entry in craft.entries.section('press').find() %}
-		<article>
-			<a href="{{ entry.url }}">
-			{% for asset in entry.pressPhotos %}
-    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
-			{% endfor %}
-			{{ entry.title }}<br>
-			{{ entry.author }}<br>
-			{{ entry.publication }} {{ entry.publicationDate }}
-			</a>
-		</article>
-	{% endfor %}
+	<h1>Press</h1>
+	<div class="recording-block">
+		{% for entry in craft.entries.section('press').find() %}
+			<article class="flex nowrap space-between">
+				<div class="third">
+				{% for asset in entry.pressPhotos %}
+	    			<img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+				{% endfor %}
+				</div>
+				<div class="two-third">
+					<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+					<p>{{ entry.author }}</p>
+					<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate }}</p>
+				</div>
+			</article>
+		{% endfor %}
 	</div>
 {% endblock %}

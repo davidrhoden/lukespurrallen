@@ -150,6 +150,10 @@ html {
     justify-content: space-between;
 }
 
+.flex.nowrap {
+    flex-wrap: nowrap;
+}
+
 .full-width {
     width: 100%;
 }
@@ -197,6 +201,10 @@ html {
 
 .third {
     width: 32%;
+}
+
+.two-third {
+    width: 64%;
 }
 
 .text-align-center {
