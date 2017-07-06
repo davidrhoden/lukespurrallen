@@ -9,15 +9,18 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<article>
-		<a href="{{ entry.url }}">
+	<div class="press-block">
+	<article class="flex">
+		<div class="press-text">
 			{% for asset in entry.pressPhotos %}
 				<img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
 			{% endfor %}<br>
-			{{ entry.title }}<br>
-			{{ entry.author }}<br>
-			{{ entry.publication }} {{ entry.publicationDate | date("M d, Y") }}
-			{{ entry.body }}<br>
-		</a>
+			<h1>{{ entry.title }}</h1>
+			<p>{{ entry.author }}</p>
+			<i>{{ entry.publication }}</i>, {{ entry.publicationDate | date("M d, Y") }}
+			<hr>
+			{{ entry.body }}
+		</div>
 	</article>
+	</div>
 {% endblock %}

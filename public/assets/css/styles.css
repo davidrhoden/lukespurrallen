@@ -154,11 +154,32 @@ html {
     width: 100%;
 }
 
-.home_block, .show-block, .recording-block {
+.home-block, .show-block, .recording-block, .press-block {
     background: rgba(255,255,255, .8);
     border: 1px dotted brown;
     margin: 1.5rem 0;
     padding: 1.5rem;
+}
+
+.home-block h2 {
+    border-bottom: 1px dotted black;
+    font-size: .8rem;
+    letter-spacing: .1rem;
+    padding-bottom: 8px;
+    text-transform: uppercase;
+}
+
+.home-block p {
+}
+
+.press-block {
+    margin: 0 auto;
+    width: 694px;
+    box-sizing: border-box;
+}
+
+.press-text p {
+    line-height: 1.5;
 }
 
 .recording-text {

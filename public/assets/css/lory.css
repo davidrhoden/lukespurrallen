@@ -23,7 +23,7 @@
                 padding: 0;
             }
 
-            li {
+            .slides li {
                 position: relative;
                 display: inline-block;
                 margin: 0;

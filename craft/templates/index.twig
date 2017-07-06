@@ -26,11 +26,11 @@
 <div class="slider js_slider js_simple">
 	<div class="frame js_frame">
 	    <ul class="slides js_slides">
-	        <li class="js_slide">
-	        	{% for asset in entry.photos %}
-					<img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
-				{% endfor %}
+	       {% for asset in entry.photos %}
+	       	<li class="js_slide">
+				<img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
 			</li>
+			{% endfor %}
 	    </ul>
 	    <span class="js_prev prev">
 	    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
@@ -43,10 +43,12 @@
 
 
 		<div class="flex full-width space-between">
-		<div class="home_block third">
+		<div class="home-block third">
+		<h2>About</h2>
 			{{ entry.body }}
 		</div>
-		<div class="home_block third">
+		<div class="home-block third">
+		<h2>Records</h2>
 			<div class="text-align-center">
 			{% set record = entry.record.first() %}
 			{% for asset in record.albumArt %}
@@ -54,9 +56,9 @@
 			{% endfor %}
 			</div>
 		</div>
-		<div class="home_block third">
-		
-			{# Pull in the three latest Work entries #}
+		<div class="home-block third">
+		<h2> Shows</h2>
+			{# Pull in the two latest shows #}
 			{% for showEntry in craft.entries.section('shows').limit(2) %}
 					<a href="{{ showEntry.url }}" class="services-entry-wrap">
 {# 						{% set image = workEntry.featuredThumb.first() %}
