@@ -11,11 +11,11 @@
  #}
 
 {% extends "_layout" %}
-{% set title = "About" %}
+{% set title = "About Luke Spurr Allen" %}
 
 {% block content %}
+	<div class="basic-block">
 	<h1>About Luke Spurr Allen</h1>
-
 	{% for entry in craft.entries.section('about').find() %}
 		<article>
 <!-- 			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3> -->
@@ -23,4 +23,5 @@
 <!-- 			<p><a href="{{ entry.url }}">Continue reading</a></p> -->
 		</article>
 	{% endfor %}
+	</div>
 {% endblock %}

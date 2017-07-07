@@ -1,37 +1,38 @@
-{#
- # News entry template
- # -------------------
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
+{# # News entry template # ------------------- # # See this page for more details on how Craft routes requests: # http://craftcms.com/docs/routing #} 
 
-{% extends "_layout" %}
-
-{% block content %}
-	<div class="recording-block">
-	<article class="flex">
-		<div>
-		{% for asset in entry.albumArt %}
-			<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
-		{% endfor %}
-		</div>
-		<div class="recording-text">
-		<h1>{{ entry.title }}</h1>
-		<p>{{ entry.body }}</p>
-		<p>{{ entry.downloadLink }}</p>
+{% extends "_layout" %} {% block content %}
+<div class="recording-block">
+    <article class="flex">
+        <div class="third">
+            {% for asset in entry.albumArt %}
+            <div class="text-align-center">
+                <img class="recordings-page" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+            </div>
+            {% endfor %}
+            <hr>
+            <div class="recordings-page text-align-center">
+                <div class="youtube-player" data-id="{{ entry.embedCode }}"></div>
+            </div>
+        </div>
+        <div class="recording-text two-third">
+            <h1>{{ entry.title }}</h1>
+            <hr>
+            <p><a href="{{ entry.downloadLink }}" target="_blank">Purchase <i>{{ entry.title }}</i> from CD Baby</a></p>
+            <p>{{ entry.body }}</p>
+            
 		</div>
 	</article>
 	</div>
-	<div class="flex space-between">
+	<div class="flex space-between ">
 	{% for entry in craft.entries.section('recordings').find() %}
 		<article>
-			<a href="{{ entry.url }}">
+			<a href="{{ entry.url }} ">
 			{% for asset in entry.albumArt %}
-    			<img class="albumart" src="{{ asset.getUrl('threeHundredPxSquare') }}" />
+    			<img class="albumart " src="{{ asset.getUrl( 'threeHundredPxSquare') }} " />
 			{% endfor %}
 			</a>
 		</article>
 	{% endfor %}
+	<script src="../assets/js/youtube-player.js "></script>
 	</div>
 {% endblock %}

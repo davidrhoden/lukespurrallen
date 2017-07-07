@@ -1,0 +1,23 @@
+{#
+ # Video entry template
+ # -------------------
+ #
+ # See this page for more details on how Craft routes requests:
+ # http://craftcms.com/docs/routing
+ #}
+
+{% extends "_layout" %}
+{% set title = "Luke Spurr Allen : Videos" %}
+
+{% block content %}
+ <link rel="stylesheet" href="/assets/css/youtube-player.css" media="(min-width:200px)">
+	<div class="basic-block">
+	<article class="flex">
+		<div class="press-text full-width">
+			<h1>{{ entry.title }}</h1>
+			<div class="youtube-player" data-id="{{ entry.embedCode }}"></div>
+		</div>
+	</article>
+	<script src="../assets/js/youtube-player.js"></script>
+	</div>
+{% endblock %}

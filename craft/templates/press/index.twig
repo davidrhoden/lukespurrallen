@@ -10,8 +10,9 @@
 {% set title = "Luke Spurr Allen : Press" %}
 
 {% block content %}
-	<h1>Press</h1>
-	<div class="recording-block">
+
+	<div class="basic-block">
+		<h1>Press</h1>
 		{% for entry in craft.entries.section('press').find() %}
 			<article class="flex nowrap space-between">
 				<div class="third">

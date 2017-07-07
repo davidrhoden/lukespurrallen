@@ -11,18 +11,21 @@
  #}
 
 {% extends "_layout" %}
-{% set title = "Shows" %}
+{% set title = "Luke Spurr Allen : Shows" %}
 
 {% block content %}
-	<h1>Shows</h1>
-
-	{% for entry in craft.entries.section('shows').find() %}
-		<article>
-			<p>{{ entry.date | date("M d, Y") }}</p>
-			<h3><a href="{{ entry.url }}"> 
-			{{ entry.venue.first() }}
-			{{ entry.lineUp }}
-			</a></h3>
-		</article>
-	{% endfor %}
+	<div class="basic-block">
+		<h1>Shows</h1>
+		{% for entry in craft.entries.section('shows').find() %}
+		<div class="basic-block">
+			<article>
+				<p>{{ entry.date | date("M d, Y") }}</p>
+				<h3><a href="{{ entry.url }}"> 
+				{{ entry.venue.first() }}
+				{{ entry.lineUp }}
+				</a></h3>
+			</article>
+			</div>
+		{% endfor %}
+	</div>
 {% endblock %}

@@ -158,9 +158,11 @@ html {
     width: 100%;
 }
 
-.home-block, .show-block, .recording-block, .press-block {
+.basic-block, .home-block, .show-block, .recording-block, .press-block {
     background: rgba(255,255,255, .8);
     border: 1px dotted brown;
+    font-size: .9rem;
+    line-height: 1.5;
     margin: 1.5rem 0;
     padding: 1.5rem;
 }
@@ -193,6 +195,11 @@ html {
 
 .recording-text h1 {
     margin: 0;
+}
+
+.recordings-page {
+    padding: 1rem;
+
 }
 
 .half {
