@@ -2,19 +2,28 @@
              * (optional) define here the style definitions which should be applied on the slider container
              * e.g. width including further controls like arrows etc.
              */
-            .slider {}
+            .slider {
+                 background-color: black;
+            }
 
             .frame {
                 /**
                  * (optional) wrapper width, specifies width of the slider frame.
                  */
-                width: 1280px;
-
+            
                 position: relative;
                 font-size: 0;
                 line-height: 0;
                 overflow: hidden;
                 white-space: nowrap;
+            }
+
+            .full-width .frame {
+                 width: 1280px;
+            }
+
+            .two-third .frame {
+                 width: 100%;
             }
 
             .slides {
@@ -28,11 +37,17 @@
                 display: inline-block;
                 margin: 0;
                 padding: 0;
+                vertical-align: middle; 
+            }
 
-                /**
+            .full-width .slides li {
+                 /**
                  * (optional) if the content inside the slide element has a defined size.
                  */
                 width: 1280px;
+            }
+            .two-third .slides li, .two-third .slides li img {
+                width: 100%;
             }
 
             .prev, .next {
