@@ -41,6 +41,7 @@ return array(
     'environmentVariables' => array(
       'basePath' => '/users/davidrhodenSites/lukespurrallen/public/',
       'baseUrl'  => 'http://lukespurrallen.local/',
+
     ),
     'testToEmailAddress' => 'david@davidrhoden.com',
     'omitScriptNameInUrls' => true,
@@ -50,7 +51,7 @@ return array(
   'lukespurrallen.com' => array(
     'siteUrl' => 'http://lukespurrallen.com/',
     'environmentVariables' => array(
-      'basePath' => '/var/www/html/public/',
+      'basePath' => '../public/',
       'baseUrl'  => 'http://lukespurrallen.com/',
     ),
     'omitScriptNameInUrls' => true,
