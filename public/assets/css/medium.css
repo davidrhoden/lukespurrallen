@@ -1,0 +1,11 @@
+#container {
+	 width: 96%;
+}   
+
+.basic-block, .home-block, .show-block, .recording-block, .press-block {
+    padding: 1rem;
+}
+
+.two-third {
+    width: 60%;
+}

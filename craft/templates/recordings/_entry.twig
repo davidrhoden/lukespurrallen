@@ -2,7 +2,7 @@
 
 {% extends "_layout" %} {% block content %}
 <div class="recording-block">
-    <article class="flex">
+    <article class="flex space-between">
         <div class="third">
             {% for asset in entry.albumArt %}
             <div class="text-align-center">
@@ -23,8 +23,8 @@
 		</div>
 	</article>
 	</div>
-	<div class="flex space-between ">
-	{% for entry in craft.entries.section('recordings').find() %}
+	<div class="flex space-between">
+	{% for entry in craft.entries.section('recordings').order('lft desc') %}
 		<article>
 			<a href="{{ entry.url }} ">
 			{% for asset in entry.albumArt %}
