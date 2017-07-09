@@ -1,18 +1,9 @@
-{#
- # Press index template
- # -------------------
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
-
 {% extends "_layout" %}
 {% set title = "Luke Spurr Allen : Press" %}
 
 {% block content %}
-
+	<h1>Press</h1>
 	<div class="basic-block">
-		<h1>Press</h1>
 		{% for entry in craft.entries.section('press').order('publicationDate desc') %}
 			<article class="flex nowrap space-between">
 				<div class="third">
@@ -22,7 +13,7 @@
 				</div>
 				<div class="two-third">
 					<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
-					<p>{{ entry.articleAuthor }}</p>
+					<h2>{{ entry.articleAuthor }}</h2>
 					<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate| date(" F d, Y ") }}</p>
 				</div>
 			</article>

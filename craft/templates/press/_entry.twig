@@ -16,7 +16,7 @@
 				<img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
 			{% endfor %}<br>
 			<h1>{{ entry.title }}</h1>
-			<p>{{ entry.rticleAuthor }}</p>
+			<h2>{{ entry.articleAuthor }}</h2>
 			<i>{{ entry.publication }}</i>, {{ entry.publicationDate | date("M d, Y") }}
 			<hr>
 			{{ entry.body }}
