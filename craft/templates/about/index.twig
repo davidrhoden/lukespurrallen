@@ -16,11 +16,9 @@
 {% block content %}
 	<h1>About Luke Spurr Allen</h1>
 	<div class="basic-block">
-	{% for entry in craft.entries.section('about').find() %}
+	{% for entry in craft.entries.section('about') %}
 		<article>
-<!-- 			<h3><a href="{{ entry.url }}">{{ entry.title }}</a></h3> -->
-			{{ entry.body.getPage(1) }}
-<!-- 			<p><a href="{{ entry.url }}">Continue reading</a></p> -->
+			{{ entry.body }}
 		</article>
 	{% endfor %}
 	</div>
