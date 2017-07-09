@@ -19,7 +19,7 @@
             }
 
             .full-width .frame {
-                 width: 1280px;
+                 width: 100%;
             }
 
             .two-third .frame {
@@ -69,4 +69,3 @@
             .next svg, .prev svg {
                 width: 25px;
             }
-            
