@@ -43,6 +43,7 @@ return array(
       'baseUrl'  => 'http://lukespurrallen.local/',
     ),
     'testToEmailAddress' => 'david@davidrhoden.com',
+    'omitScriptNameInUrls' => true,
   ),
 
   // Use IP address of your droplet below
@@ -51,6 +52,7 @@ return array(
     'environmentVariables' => array(
       'basePath' => '/var/www/html/public/',
       'baseUrl'  => 'http://lukespurrallen.com/',
-    )
+    ),
+    'omitScriptNameInUrls' => true,
   )
 );
