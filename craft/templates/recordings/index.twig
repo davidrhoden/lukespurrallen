@@ -12,7 +12,7 @@
 {% block content %}
 	<h1>Recordings</h1>
 	<div class="flex space-between">
-	{% for entry in craft.entries.section('recordings').find() %}
+	{% for entry in craft.entries.section('recordings').order('lft desc') %}
 		<article>
 			<a href="{{ entry.url }}">
 			{% for asset in entry.albumArt %}
