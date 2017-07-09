@@ -13,7 +13,7 @@
 
 	<div class="basic-block">
 		<h1>Press</h1>
-		{% for entry in craft.entries.section('press').find() %}
+		{% for entry in craft.entries.section('press').order('publicationDate desc') %}
 			<article class="flex nowrap space-between">
 				<div class="third">
 				{% for asset in entry.pressPhotos %}
@@ -22,8 +22,8 @@
 				</div>
 				<div class="two-third">
 					<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
-					<p>{{ entry.author }}</p>
-					<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate }}</p>
+					<p>{{ entry.articleAuthor }}</p>
+					<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate| date(" F d, Y ") }}</p>
 				</div>
 			</article>
 		{% endfor %}
