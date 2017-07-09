@@ -10,7 +10,7 @@
 {% set title = "Recordings" %}
 
 {% block content %}
-	<h1>Recordings</h1>
+	<h1 class="page-title">Recordings</h1>
 	<div class="flex space-between">
 	{% for entry in craft.entries.section('recordings').order('lft desc') %}
 		<article>

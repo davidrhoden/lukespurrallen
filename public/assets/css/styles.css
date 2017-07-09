@@ -113,6 +113,11 @@ html {
     font-weight: bold;
 }
 
+#content h1 page-title {
+    border-top: 2px dotted indianred;
+    padding-top: 1.5rem;
+}
+
 #content a {
     color: #da5a47;
     text-decoration: none;

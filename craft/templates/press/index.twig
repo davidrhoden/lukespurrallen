@@ -2,7 +2,7 @@
 {% set title = "Luke Spurr Allen : Press" %}
 
 {% block content %}
-	<h1>Press</h1>
+	<h1 class="page-title">Press</h1>
 	<div class="basic-block">
 		{% for entry in craft.entries.section('press').order('publicationDate desc') %}
 			<article class="flex nowrap space-between">
