@@ -1,20 +1,25 @@
-{# # News index template # ------------------- # # This template is loaded whenever http://example.com/news is # requested, because it is located at news/index.html in your # craft/templates/ folder. # # See this page for more details on how Craft routes requests: # http://craftcms.com/docs/routing #} 
 
-{% extends "_layout" %} {% set title = "Luke Spurr Allen : Shows" %} {% block content %}
+{% extends "_layout" %} 
+{% set title = "Luke Spurr Allen : Shows" %} 
+{% block content %}
     <h1>Shows</h1> {% for entry in craft.entries.find({ section:'shows', date : "<= " ~ now.w3cDate() , order:'date desc'}) %}
-    <div class="basic-block flex">
+    <div class="show-block flex">
         <div class="third">
             <article>
-                <p>{{ entry.date | date("M d, Y") }}</p>
+                <p>{{ entry.date | date("F d, Y") }}</p>
                 <h3><a href="{{ entry.url }}"> 
 					{{ entry.venue.first() }}</a></h3>
 					<h2>{{ entry.lineUp }}</h2>
+                    {% if entry.cover|length %}
+                        , {{ entry.cover }}
+                    {% endif %}
+                </p>
 					{{ entry.body }}
             </article>
         </div>
         <div class="third">
             {% for asset in entry.showArt %}
-            <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" M d, Y ") }}" /> {% endfor %}
+            <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.lineUp|replace({'<p>': ' ', '</p>': ' '}) }} {{ entry.date | date(" M d, Y") }}" /> {% endfor %}
         </div>
     </div>
     {% endfor %}

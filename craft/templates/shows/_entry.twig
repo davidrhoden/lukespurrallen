@@ -9,22 +9,26 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<div class="basic-block flex">
+	<div class="show-block flex">
 		<div class="full-width">
-			<h2>{{ entry.date | date("M d, Y")}}</h2>
+			<h2>{{ entry.date | date("F d, Y")}}</h2>
 			<hr>
 		</div>
 		<div class="third">
 			<article>		
 				<h1><a href="{{ entry.venue.first().website }}" target="_blank">{{ entry.venue.first() }}</a></h1>
-				<p>{{ entry.lineUp }}</p>
-				<p>{{ entry.time |date("g:i a")}}</p>
+				<h2>{{ entry.lineUp }}</h2>
+				<p>{{ entry.time |date("g:i a") }}
+				{% if entry.cover|length %}
+				, {{ entry.cover }}
+					{% endif %}
+				</p>
 				<p>{{ entry.body }}</p>
 			</article>
 		</div>
 	    <div class="third">
             {% for asset in entry.showArt %}
-            <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" M d, Y ") }}" /> {% endfor %}
+            <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.lineUp|replace({'<p>': ' ', '</p>': ' '}) }} {{ entry.date | date(" M d, Y ") }}" /> {% endfor %}
         </div>
 	</div>
 {% endblock %}

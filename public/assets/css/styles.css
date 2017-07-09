@@ -200,7 +200,10 @@ html {
 
 .recordings-page {
     padding: 1rem;
+}
 
+.show-block h2 p {
+    margin: 0;
 }
 
 .half {
