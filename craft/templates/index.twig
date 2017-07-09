@@ -1,91 +1,66 @@
-{#
- # Homepage template
- # ---------------
- #
- # When this template gets loaded, it will be because someone has accessed
- # http://yoursite.com/ (without any URI). Craft checks to see if you have
- # a Single section set to be the Homepage (as you do, by default), and
- # loads the section’s Template (this file). A special ‘entry’ variable
- # will already be set for you, assigned to the Homepage entry.
- #
- # It's worth noting that even if you didn't have a Homepage Single section,
- # as long as this template remains at craft/templates/index.html, it
- # would still be the one to get loaded when accessing http://yoursite.com/,
- # albeit without an ‘entry’ variable already set for you.
- #
- # See this page for more details on how Craft routes requests:
- # http://craftcms.com/docs/routing
- #}
+{# # Homepage template # --------------- # # When this template gets loaded, it will be because someone has accessed # http://yoursite.com/ (without any URI). Craft checks to see if you have # a Single section set to be the Homepage (as you do, by default), and # loads the section’s Template (this file). A special ‘entry’ variable # will already be set for you, assigned to the Homepage entry. # # It's worth noting that even if you didn't have a Homepage Single section, # as long as this template remains at craft/templates/index.html, it # would still be the one to get loaded when accessing http://yoursite.com/, # albeit without an ‘entry’ variable already set for you. # # See this page for more details on how Craft routes requests: # http://craftcms.com/docs/routing #} 
 
-{% extends "_layout" %}
-
-{% block content %}
-
+{% extends "_layout" %} {% block content %}
 <div class="fullscreen">
-
-<div class="slider js_slider js_simple">
-	<div class="frame js_frame">
-	    <ul class="slides js_slides">
-	       {% for asset in entry.photos %}
-	       	<li class="js_slide">
-				<img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
-			</li>
-			{% endfor %}
-	    </ul>
-	    <span class="js_prev prev">
+    <div class="slider js_slider js_simple">
+        <div class="frame js_frame">
+            <ul class="slides js_slides">
+                {% for asset in entry.photos %}
+                <li class="js_slide">
+                    <img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
+                </li>
+                {% endfor %}
+            </ul>
+            <span class="js_prev prev">
 	    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M302.67 90.877l55.77 55.508L254.575 250.75 358.44 355.116l-55.77 55.506L143.56 250.75z"/></g></svg>
 		</span>
-		<span class="js_next next">
+            <span class="js_next next">
 		    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" viewBox="0 0 501.5 501.5"><g><path fill="#2E435A" d="M199.33 410.622l-55.77-55.508L247.425 250.75 143.56 146.384l55.77-55.507L358.44 250.75z"/></g></svg>
 		</span>
-	</div>
-</div>
-
-
-		<div class="flex full-width space-between">
-		<div class="home-block third">
-		<h2>About</h2>
-			{{ entry.body }}
-		</div>
-		<div class="home-block third">
-		<h2>Records</h2>
-			<div class="text-align-center">
-			{% set record = entry.record.first() %}
-			{% for asset in record.albumArt %}
-    			<p><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></p>
-			{% endfor %}
-			</div>
-		</div>
-		<div class="home-block third">
-		<h2> Shows</h2>
-			{# Pull in the two latest shows #}
-			{% for showEntry in craft.entries.section('shows').limit(2) %}
-					<a href="{{ showEntry.url }}" class="services-entry-wrap">
-{# 						{% set image = workEntry.featuredThumb.first() %}
-						{% if image %}
-							<img src="{{ image.getUrl('thumb') }}" alt="image.title"/>
-						{% endif %} #}
-
-						<h3>{{ showEntry.date | date("M d, Y") }}<br>
-						{{ showEntry.venue.first() }}</h3>
-						{{ showEntry.lineUp }}
-						{{ showEntry.time | date("g:i a") }}
-					</a>
-			{% endfor %}
-
-		</div>
-
-	</div>
+        </div>
+    </div>
+    <div class="flex full-width space-between">
+        <div class="home-block third">
+            <h2>About</h2> {{ entry.body }}
+        </div>
+        <div class="home-block third">
+            <h2>Records</h2>
+            <div class="text-align-center">
+                {% set record = entry.record.first() %} {% for asset in record.albumArt %}
+                <p><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></p>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="home-block third">
+            <h2> Shows</h2> {# Pull in the two latest shows #} {# {% for showEntry in craft.entries.section('shows').limit(2) %} #} {% for showEntry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %}
+            <div class="flex space-between">
+                <div>
+                    <a href="{{ showEntry.url }}" class="services-entry-wrap">
+                        <h3>{{ showEntry.date | date("M d, Y") }}<br>
+						{{ showEntry.venue.first() }}</h3> {{ showEntry.lineUp }}
+                    </a>
+                    {{ showEntry.time | date("g:i a") }}
+                </div>
+                <div>
+                {% set image = showEntry.showArt.first() %} 
+                {% if image %}
+                	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
+                {% endif %}
+                </div>
+            </div>
+            <hr>
+            {{ showEntry.body }} {% endfor %}
+        </div>
+    </div>
 </div>
 <script src="../assets/js/lory.min.js"></script>
 <script>
-document.addEventListener('DOMContentLoaded', function () {
-        var simple = document.querySelector('.js_simple');
+document.addEventListener('DOMContentLoaded', function() {
+    var simple = document.querySelector('.js_simple');
 
-        lory(simple, {
-            infinite: 1
-        });
+    lory(simple, {
+        infinite: 1
     });
+});
 </script>
-
 {% endblock %}
