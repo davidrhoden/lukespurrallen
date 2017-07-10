@@ -3,7 +3,7 @@
 }  
 
 #content h1 {
-    font-size: 1rem; 
+    font-size: 1.4rem; 
     line-height: 1.2;
 }
 
@@ -12,7 +12,7 @@
 	flex-wrap: nowrap;
 }
 
-.third, .two-third, .third img, .two-third img {
+.third, .two-third, .third img, .two-third img, .press-text img {
 	width: 100%;
 }
 
@@ -20,15 +20,20 @@
      display: block; 
 }   
 
-.basic-block h1 {
+.basic-block h1, .show-block h1 {
 	margin: 0;
 }
 
-.basic-block h2 {
-	font-size: 1rem;
+.basic-block h2, .show-block h2  {
+	font-size: 1.1rem;
 	margin: 0;
 }
 
 .basic-block h2 ~ p {
 		margin-top: 0;
+}
+
+.press-divider {
+	border-bottom: 1px dotted indianred;
+	margin: .75rem 0 1.25rem;
 }

@@ -9,3 +9,24 @@
 .two-third {
     width: 60%;
 }
+
+.home-block img {
+	width: 100%;
+}
+
+.recordings-index {    
+	background: rgba(255,255,255, .8);
+    border: 1px dotted brown;
+    font-size: .9rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+    padding: 1.5rem;
+}
+
+.recordings-index.space-between {   
+	justify-content: space-around;
+}
+
+.recordings-index img { 
+	margin: .75rem 0;
+}  
