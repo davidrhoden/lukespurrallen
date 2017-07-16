@@ -5,16 +5,18 @@
 	<h1 class="page-title">Press</h1>
 	<div class="basic-block">
 		{% for entry in craft.entries.section('press').order('publicationDate desc') %}
-			<article class="flex nowrap space-between">
+			<article class="flex nowrap space-between stretch">
 				<div class="third">
 				{% for asset in entry.pressPhotos %}
-	    			<img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+	    			<img `	src="{{ asset.getUrl('threeHundredTwentyPxSquare') }}" />
 				{% endfor %}
 				</div>
 				<div class="two-third">
-					<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
-					<h2>{{ entry.articleAuthor }}</h2>
-					<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate| date(" F d, Y ") }}</p>
+					<div class="press-index">
+						<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
+						<h2>{{ entry.articleAuthor }}</h2>
+						<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate| date(" F d, Y ") }}</p>
+					</div>
 				</div>
 			</article>
 			<div class="press-divider"></div>

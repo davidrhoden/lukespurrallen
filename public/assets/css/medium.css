@@ -10,8 +10,16 @@
     width: 60%;
 }
 
+
 .home-block img {
 	width: 100%;
+}
+
+.press-index {
+    background-color: rgba(205,92, 92,.5);
+    padding: 2rem;
+    flex: 0 2 auto;
+    width: 100%;
 }
 
 .recordings-index {    
@@ -30,3 +38,7 @@
 .recordings-index img { 
 	margin: .75rem 0;
 }  
+
+.title {
+    width: 100%;
+}

@@ -10,17 +10,25 @@
 
 {% block content %}
 	<div class="basic-block">
-	<article class="flex">
+	<article>
+		<div class="flex nowrap space-between stretch">
+			<div class="photo">
+				{% for asset in entry.pressPhotos %}
+					<img src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
+				{% endfor %}<br>
+			</div>
+			<div class="press-index flex nowrap">
+				<div>
+					<h1>{{ entry.title }}</h1>
+					<h2>{{ entry.articleAuthor }}</h2>
+					<i>{{ entry.publication }}</i>, {{ entry.publicationDate | date("M d, Y") }}
+				</div>
+			</div>
+		</div>
 		<div class="press-text">
-			{% for asset in entry.pressPhotos %}
-				<img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
-			{% endfor %}<br>
-			<h1>{{ entry.title }}</h1>
-			<h2>{{ entry.articleAuthor }}</h2>
-			<i>{{ entry.publication }}</i>, {{ entry.publicationDate | date("M d, Y") }}
-			<hr>
 			{{ entry.body }}
 		</div>
-	</article>
 	</div>
+</article>
+</div>
 {% endblock %}
