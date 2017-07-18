@@ -231,9 +231,15 @@ html {
     opacity: .8;
 }
 
+.press-title {
+    background-color: rgba(205,92, 92,.5);
+    min-height: 100%;
+    padding: 3rem;
+}
+
+
 .press-text {
     margin: 4rem auto;
-    width: 50%;
 }
 
 .press-text p {
@@ -275,7 +281,6 @@ html {
 }
 
 .third {
-    line-height: 1;
     width: 33%;
 }
 

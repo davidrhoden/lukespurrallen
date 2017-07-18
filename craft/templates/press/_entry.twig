@@ -9,15 +9,15 @@
 {% extends "_layout" %}
 
 {% block content %}
-	<div class="basic-block">
+<div class="basic-block">
 	<article>
-		<div class="flex nowrap space-between stretch">
-			<div class="photo">
+		<div class="flex nowrap space-between">
+			<div class="photo third">
 				{% for asset in entry.pressPhotos %}
-					<img src="{{ asset.getUrl('sixHundredFortyPxWide') }}" />
+					<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
 				{% endfor %}<br>
 			</div>
-			<div class="press-index flex nowrap">
+			<div class="press-title flex two-third">
 				<div>
 					<h1>{{ entry.title }}</h1>
 					<h2>{{ entry.articleAuthor }}</h2>
@@ -25,10 +25,15 @@
 				</div>
 			</div>
 		</div>
-		<div class="press-text">
-			{{ entry.body }}
+		<div class="flex nowrap space-between">
+			<div class="third">
+			</div>
+			<div class="two-third">
+				<div class="press-text">
+					{{ entry.body }}
+				</div>
+			</div>
 		</div>
-	</div>
-</article>
+	</article>
 </div>
 {% endblock %}
