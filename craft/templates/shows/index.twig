@@ -27,9 +27,9 @@
                 <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %}
             </div>
         </div>
-        <div class="pastshows-link">
-            <a href="{{ url('pastshows') }}">see past shows</a>
-        </div>
     </div> 
     {% endfor %}
+    <div class="pastshows-link">
+        <a href="{{ url('pastshows') }}">see past shows</a>
+    </div>
 {% endblock %}

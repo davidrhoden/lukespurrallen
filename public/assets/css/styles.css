@@ -11,7 +11,7 @@
 body {
     margin: 0px;
     font-family: 'Domine', serif;
-    background: url(../images/site/textured_paper.png) left top repeat;
+    background: url(../images/site/textured_paper_c2780e.jpg) left top repeat;
 }
 
 html { 
@@ -212,6 +212,9 @@ html {
     margin: 0;
 }
 
+.home-block.about  p {
+    margin-bottom: 1rem;
+} 
 .press-block {
     margin: 0 auto;
 }
@@ -221,7 +224,7 @@ html {
 }
 
 .press-index {
-    background-color: rgba(205,92, 92,.5);
+    background-color: rgba(255, 199, 114,.2);
     height: 100%;
     padding: 3rem;
 }
@@ -232,7 +235,7 @@ html {
 }
 
 .press-title {
-    background-color: rgba(205,92, 92,.5);
+    background-color: rgba(255, 199, 114,.2);
     min-height: 100%;
     padding: 3rem;
 }
@@ -244,6 +247,7 @@ html {
 
 .press-text p {
     line-height: 1.5;
+    width: 75%;
 }
 
 .press-intro {
@@ -274,6 +278,13 @@ html {
 
 .show-block h2 p {
     margin: 0;
+}
+
+#content .pastshows-link a {
+    background: indianred;
+    color: white;
+    font-family: 'Oswald', sans-serif;
+    padding: .5rem;
 }
 
 .half {

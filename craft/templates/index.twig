@@ -20,15 +20,17 @@
         </div>
     </div>
     <div class="flex full-width space-between">
-        <div class="home-block third">
+        <div class="home-block third about">
             <h2>About</h2> {{ entry.body }}
         </div>
         <div class="home-block third">
             <h2>Records</h2>
             <div class="text-align-center">
-                {% set record = entry.record.first() %} {% for asset in record.albumArt %}
-                <p><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></p>
-                {% endfor %}
+                {% set record = entry.record.first() %} 
+                    {% for asset in record.albumArt %}
+                        <p><a href="{{ record.url }}"><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></a></p>
+                    {% endfor %}
+                   <p>Hear the new album, <i>Pothole Heart</i></p>
             </div>
         </div>
         <div class="home-block third">
