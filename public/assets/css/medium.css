@@ -42,3 +42,16 @@
 .title {
     width: 100%;
 }
+
+.flex.space-between {
+    justify-content: space-around;
+}
+
+.flex.space-between article {
+    width: 24%;
+}
+
+
+.flex.space-between article img {
+    width: 100%;
+}

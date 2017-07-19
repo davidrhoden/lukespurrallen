@@ -212,9 +212,16 @@ html {
     margin: 0;
 }
 
-.home-block.about  p {
+.home-block.about p {
     margin-bottom: 1rem;
 } 
+
+.paper-separator{
+    background: url(../images/site/textured_paper_c2780e.jpg) left top repeat;
+    height: .2rem;
+    margin: 1rem 0;
+}
+
 .press-block {
     margin: 0 auto;
 }

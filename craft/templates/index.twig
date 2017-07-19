@@ -34,7 +34,8 @@
             </div>
         </div>
         <div class="home-block third">
-            <h2> Shows</h2> {# Pull in the two latest shows #} {# {% for showEntry in craft.entries.section('shows').limit(2) %} #} {% for showEntry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %}
+            <h2> Shows</h2> {# Pull in the two latest shows #} {# {% for showEntry in craft.entries.section('shows').limit(2) %} #} 
+            {% for showEntry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %}
             <div class="flex space-between">
                 <div>
                     <a href="{{ showEntry.url }}" class="services-entry-wrap">
@@ -50,8 +51,12 @@
                 {% endif %}
                 </div>
             </div>
-            <hr>
-            {{ showEntry.body }} {% endfor %}
+            {% if showEntry.body %}
+                <hr>
+                {{ showEntry.body }} 
+            {% endif %}
+            <div class="paper-separator"></div>
+            {% endfor %}
         </div>
     </div>
 </div>
