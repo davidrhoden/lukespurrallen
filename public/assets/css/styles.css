@@ -134,6 +134,10 @@ html {
     text-decoration: underline;
 }
 
+#content h6 {
+    margin: .2rem 0 1rem;
+}
+
 #footer {
     padding: 15px;
     font-size: 12px;

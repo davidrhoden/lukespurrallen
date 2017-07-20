@@ -15,6 +15,7 @@
 			<div class="photo third">
 				{% for asset in entry.pressPhotos %}
 					<img src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" />
+					<h6>{{ entry.photoCredit }}</h6>
 				{% endfor %}<br>
 			</div>
 			<div class="press-title flex two-third">
