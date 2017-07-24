@@ -36,26 +36,28 @@
         <div class="home-block third">
             <h2> Shows</h2> {# Pull in the two latest shows #} {# {% for showEntry in craft.entries.section('shows').limit(2) %} #} 
             {% for showEntry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %}
-            <div class="flex space-between">
-                <div>
-                    <a href="{{ showEntry.url }}" class="services-entry-wrap">
-                        <h3>{{ showEntry.date | date("M d, Y") }}<br>
-						{{ showEntry.venue.first() }}</h3> {{ showEntry.lineUp }}
-                    </a>
-                    {{ showEntry.time | date("g:i a") }}
-                </div>
-                <div>
-                {% set image = showEntry.showArt.first() %} 
-                {% if image %}
-                	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
-                {% endif %}
-                </div>
-            </div>
-            {% if showEntry.body %}
-                <hr>
-                {{ showEntry.body }} 
-            {% endif %}
+                    <div class="flex space-between">
+                        <div>
+                            <a href="{{ showEntry.url }}" class="services-entry-wrap">
+                                <h3>{{ showEntry.date | date("M d, Y") }}<br>
+        						{{ showEntry.venue.first() }}</h3> {{ showEntry.lineUp }}
+                            </a>
+                            {{ showEntry.time | date("g:i a") }}
+                        </div>
+                        <div>
+                            {% set image = showEntry.showArt.first() %} 
+                            {% if image %}
+                            	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
+                            {% endif %}
+                        </div>
+                    </div>
+                    {% if showEntry.body %}
+                        <hr>
+                        {{ showEntry.body }} 
+                    {% endif %}
             <div class="paper-separator"></div>
+             {% else %}
+                    <p>Watch this space for upcoming shows.</p>
             {% endfor %}
         </div>
     </div>

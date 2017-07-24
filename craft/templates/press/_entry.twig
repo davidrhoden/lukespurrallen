@@ -22,7 +22,7 @@
 				<div>
 					<h1>{{ entry.title }}</h1>
 					<h2>{{ entry.articleAuthor }}</h2>
-					<i>{{ entry.publication }}</i>, {{ entry.publicationDate | date("M d, Y") }}
+					<i><a href="{{ entry.downloadLink }}" target="_blank">{{ entry.publication }}</i></a>, {{ entry.publicationDate | date("M d, Y") }}
 				</div>
 			</div>
 		</div>

@@ -15,7 +15,7 @@
 					<div class="press-index">
 						<h1><a href="{{ entry.url }}">{{ entry.title }}</a></h1>
 						<h2>{{ entry.articleAuthor }}</h2>
-						<p><i>{{ entry.publication }}</i>, {{ entry.publicationDate| date(" F d, Y ") }}</p>
+						<p><i><a href="{{ entry.downloadLink }}" target="_blank">{{ entry.publication }}</i></a>, {{ entry.publicationDate | date("M d, Y") }}</p>
 					</div>
 				</div>
 			</article>

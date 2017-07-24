@@ -45,3 +45,7 @@
 .press-text p {
     width: 100%;
 }
+
+.recording-text p, .recording-text li, .lyrics p {
+    width: 100%;
+}

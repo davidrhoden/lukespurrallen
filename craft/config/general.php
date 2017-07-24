@@ -35,11 +35,11 @@
 
 
 return array(
-  'localhost' => array(
+  'lukespurrallen.local' => array(
     'devMode' => true,
     'siteUrl' => 'http://lukespurrallen.local/',
     'environmentVariables' => array(
-      'basePath' => '/users/davidrhodenSites/lukespurrallen/public/',
+      'basePath' => '/users/davidrhoden/Sites/lukespurrallen/public/',
       'baseUrl'  => 'http://lukespurrallen.local/',
 
     ),

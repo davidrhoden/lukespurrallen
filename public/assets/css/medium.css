@@ -38,6 +38,10 @@
 	margin: .75rem 0;
 }  
 
+.recording-text p, .recording-text li, .lyrics p {
+    width: 100%;
+}
+
 .title {
     width: 100%;
 }

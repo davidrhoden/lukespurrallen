@@ -18,9 +18,13 @@
             <h1>{{ entry.title }}</h1>
             <hr>
             <p><a href="{{ entry.downloadLink }}" target="_blank">Purchase <i>{{ entry.title }}</i> from CD Baby</a></p>
-            <p>{{ entry.body }}</p>
-            
-		</div>
+            <p>{{ entry.body }}</p> 
+            {% if entry.lyrics %}
+                <h2>Lyrics</h2>
+                     <hr>
+                <div class="lyrics">{{ entry.lyrics }}</div> 
+            {% endif %}
+        </div>
 	</article>
 	</div>
 	<div class="flex space-between">

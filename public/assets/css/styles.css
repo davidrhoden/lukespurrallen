@@ -298,6 +298,10 @@ html {
     padding: .5rem;
 }
 
+.recording-text p, .recording-text li, .lyrics p {
+    width: 75%;
+}
+
 .half {
     width: 50%;
 }
