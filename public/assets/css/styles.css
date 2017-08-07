@@ -1,25 +1,31 @@
 @font-face {
-  font-family: 'KatahdinRound-Bold';
-  src: url('KatahdinRound-Bold.eot'); /* IE9 Compat Modes */
-  src: url('KatahdinRound-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-/*       url('KatahdinRound-Bold.woff2') format('woff2'), /* Super Modern Browsers */*/
-       url('KatahdinRound-Bold.woff') format('woff'), /* Pretty Modern Browsers */
-       url('KatahdinRound-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
-       url('KatahdinRound-Bold.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-family: '../webfonts/KatahdinRound-Bold';
+    src: url('../webfonts/KatahdinRound-Bold.eot'); /* IE9 Compat Modes */
+    src: url('../webfonts/KatahdinRound-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+        url('../webfonts/KatahdinRound-Bold.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../webfonts/KatahdinRound-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../webfonts/KatahdinRound-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
+        url('../webfonts/KatahdinRound-Bold.svg#KatahdinRound-Bold') format('svg'); /* Legacy iOS */
+    font-weight: normal;
+    font-style: normal;
+    font-family: 'grotroughregular';
+    src: url('../webfonts/grotrough-webfont.eot');
+    src: url('../webfonts/grotrough-webfont.eot?#iefix') format('embedded-opentype'),
+        url('../webfonts/grotrough-webfont.woff2') format('woff2'),
+        url('../webfonts/grotrough-webfont.woff') format('woff'),
+        url('../webfonts/grotrough-webfont.ttf') format('truetype'),
+        url('../webfonts/grotrough-webfont.svg#grotroughregular') format('svg');
+    font-weight: normal;
+    font-style: normal;
 }
 
 body {
     margin: 0px;
     font-family: 'Domine', serif;
-    background: url(../images/site/textured_paper_c2780e.jpg) left top repeat;
+    background: #ccaa7a url(../images/site/textured_paper_c2780e.jpg) left top repeat;
 }
 
 html { 
-    /*background: url(../images/photos/luke_mirror_gray.jpg) no-repeat center center fixed; */
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
     box-sizing: border-box;
 }
 
@@ -53,14 +59,6 @@ html {
     padding: 25px 0;
     width: 100%;
 }
-
-/*#header:after {
-    content: '.';
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}*/
 
 #header a {
     text-decoration: none;
@@ -116,6 +114,20 @@ html {
 #content h1.page-title {
     border-top: 2px dotted indianred;
     padding-top: 1.5rem;
+}
+
+#content h1.poster-content {
+    font-family: 'grotroughregular', sans-serif;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    width: 90%;
+    position: absolute;
+}
+
+#content h1.poster-content p, #content h1.poster-content span {
+    margin: 0;
+    padding: 0;
 }
 
 #content a {
@@ -179,8 +191,13 @@ html {
 }
 
 .flex.flex-start {
-    align: items: flex-start;
+    align-items: flex-start;
 }
+
+.flex.align-items-center {
+    align-items: center;
+}
+
 
 .full-width {
     width: 100%;
@@ -188,11 +205,20 @@ html {
 
 .basic-block, .home-block, .show-block, .recording-block, .press-block {
     background: rgba(255,255,255, .8);
-    border: 1px dotted brown;
     font-size: .9rem;
     line-height: 1.5;
     margin: 1.5rem 0;
     padding: 1.5rem;
+}
+
+.home-block {
+    padding: .25rem;
+}
+
+.inset-border {
+    border: 1px dotted brown;
+    height: 100%;
+    padding: 1.25rem;
 }
 
 .basic-block .photo {
@@ -310,6 +336,10 @@ html {
     width: 75%;
 }
 
+.canvas-container {
+    position: relative;
+}
+
 .half {
     width: 50%;
 }
@@ -333,4 +363,49 @@ html {
 .smallcaps {
     font-vari­ant: small-caps;
 }
-            
+
+/*****  REQUIRED FOR SLABTEXT.JS *****/
+.slabtexted .slabtext
+    {
+    display: -moz-inline-box;
+    display: inline-block;
+    white-space: nowrap;
+    }
+.slabtextinactive .slabtext
+    {
+    display: inline;
+    white-space: normal;
+    font-size: 1em !important;
+    letter-spacing: inherit !important;
+    word-spacing: inherit !important;
+    *letter-spacing: normal !important;
+    *word-spacing: normal !important;
+    }
+.slabtextdone .slabtext
+    {
+    display: block;
+    }   
+
+.bigText-container {
+    position: absolute;
+    font-family: 'grotroughregular', sans-serif;
+    line-height: 1;
+    text-align: center;
+    text-transform: uppercase;
+    height: 90%;
+    width: 90%;
+}
+
+.bigText-container .bigText {
+    line-height: 1;
+    -moz-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    -webkit-text-size-adjust: 100%;
+    width: 100%;
+}
+
+.bigText-container .bigText p {
+    margin: 0;
+    padding: 0;
+}
+         

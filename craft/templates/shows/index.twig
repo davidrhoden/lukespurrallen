@@ -23,6 +23,33 @@
                 </article>
             </div>
             <div class="third">
+                <div class="canvas-container flex center align-items-center">
+                    <div class="bigText-container">
+                        <div class="bigText">{{ entry.lineUp }}</div>
+                        <div class="bigText"><p>{{ entry.venue.first() }}</p></div>
+                        <div class="bigText"><p>{{ entry.date | date("M d, Y") }}</p></div>
+                        <div class="bigText"><p>{{ entry.time | date("g:i a") }}</p></div>
+                    </div>
+                    <h1 class="poster-content {{ entry.venue.first() | replace({' ':'', '\'':''}) }}">
+                    </h1>
+                    <canvas id="canvas{{ (loop.index)-1 }}" class="canvas"></canvas>
+                    
+                    <script src="../assets/js/jquery.slabtext.min.js"></script>
+                    <script src="../assets/js/bigtext.js"></script>
+                    <script>makeCanvas(400,500);</script>
+                    <script>
+                    var stS = "<span class='slabtext'>",
+                        stE = "</span>",
+                        txt = [
+                            "{{ entry.lineUp }}",
+                            "{{ entry.venue.first()}}",
+                            "{{ entry.date | date("M d, Y") }}",
+                            "{{ entry.time | date("g:i a") }}"];
+                        // $(".poster-content.{{ entry.venue.first() | replace({' ':'', '\'':''}) }}").html(stS + txt.join(stE + stS) + stE).slabText();
+                    </script>
+                </div>
+            </div>
+            <div class="third">
                 {% for asset in entry.showArt %}
                 <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %}
             </div>
@@ -32,4 +59,12 @@
     <div class="pastshows-link">
         <a href="{{ url('pastshows') }}">see past shows</a>
     </div>
+
+   <script>
+        $(document).ready(function() {
+            $('.bigText-container .bigText').bigtext({
+                // minfontsize:60
+            });
+        });
+        </script>
 {% endblock %}

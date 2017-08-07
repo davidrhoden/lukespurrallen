@@ -27,6 +27,23 @@
 			</article>
 		</div>
 	    <div class="third">
+            <div class="canvas-container flex center">
+                <h1 class="poster-content"></h1>
+                <canvas id="canvas"></canvas>
+                <script>makeCanvas();</script>
+                <script>
+                var stS = "<span class='slabtext'>",
+                    stE = "</span>",
+                    txt = [
+                        "{{ entry.lineUp | striptags }}",
+                        "{{ entry.venue.first()}}",
+                        "{{ entry.date | date("M d, Y") }}",
+                        "{{ entry.time | date("g:i a") }}"];
+                    $(".poster-content").html(stS + txt.join(stE + stS) + stE).slabText();
+                </script>
+            </div>
+        </div>
+	    <div class="third">
             {% for asset in entry.showArt %}
             <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.lineUp|replace({'<p>': ' ', '</p>': ' '}) }} {{ entry.date | date(" M d, Y ") }}" /> {% endfor %}
         </div>
