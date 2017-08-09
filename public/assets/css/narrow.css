@@ -49,3 +49,7 @@
 .recording-text p, .recording-text li, .lyrics p {
     width: 100%;
 }
+
+.bigText-container {
+    min-height: 400px;
+}

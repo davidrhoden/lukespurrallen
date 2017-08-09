@@ -41,38 +41,37 @@
              <div class="inset-border">
             <h2> Shows</h2>
             {% for showEntry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date', limit:1 }) %}
-                {# <div class="flex center"> #}
-{#                     <div>
-                        <a href="{{ showEntry.url }}" class="services-entry-wrap">
-                            <h3>{{ showEntry.date | date("M d, Y") }}<br>
-    						{{ showEntry.venue.first() }}</h3> {{ showEntry.lineUp }}
-                        </a>
-                        {{ showEntry.time | date("g:i a") }}
-                    </div> #}
-                    {# <div> #}
-                        {% set image = showEntry.showArt.first() %} 
-                        {% if image %}
-                        	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
-                            {% else %}
-                            <div class="canvas-container flex center align-items-center">
-                                <h1 class="poster-content"></h1>
-                                <canvas id="canvas{{ (loop.index)-1 }}" class="canvas"></canvas>
-                                <script src="../assets/js/jquery.slabtext.min.js"></script>
-                                <script>makeCanvas(320,400);</script>
-                                <script>
-                                var stS = "<span class='slabtext'>",
-                                    stE = "</span>",
-                                    txt = [
-                                        "{{ showEntry.lineUp }}",
-                                        "{{ showEntry.venue.first()}}",
-                                        "{{ showEntry.date | date("M d, Y") }}",
-                                        "{{ showEntry.time | date("g:i a") }}"];
-                                    $(".poster-content").html(stS + txt.join(stE + stS) + stE).slabText();
-                                </script>
+            {# <div class="flex center"> #}
+            {# <div>
+                    <a href="{{ showEntry.url }}" class="services-entry-wrap">
+                        <h3>{{ showEntry.date | date("M d, Y") }}<br>
+						{{ showEntry.venue.first() }}</h3> {{ showEntry.lineUp }}
+                    </a>
+                    {{ showEntry.time | date("g:i a") }}
+                </div> #}
+                {# <div> #}
+                    {% set image = showEntry.showArt.first() %} 
+                    {% if image %}
+                    	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
+                        {% else %}
+                        <div class="canvas-container flex center align-items-center">
+                            <div id="poster{{ (loop.index) -1 }}" class="poster">
+                            <div class="bigText-container">
+                                <a href="{{ url('shows') }}">
+                                <div class="bigText">{{ showEntry.lineUp }}</div>
+                                <div class="bigText"><p>{{ showEntry.venue.first() }}</p></div>
+                                <div class="bigText"><p>{{ showEntry.date | date("M d, Y") }}</p></div>
+                                <div class="bigText"><p>{{ showEntry.time | date("g:i a") }}</p></div>
+                                </a>
                             </div>
-                        {% endif %}
-                    {# </div> #}
+                            
+                        <script src="../assets/js/bigtext.js"></script>
+                        <script src="../assets/js/poster.js"></script>
+                        <script>makePoster();</script>
+                        </div>
+                    {% endif %}
                 {# </div> #}
+            {# </div> #}
                 {% if showEntry.body %}
                     <hr>
                     {{ showEntry.body }} 
@@ -88,6 +87,13 @@
         </div>
     </div>
 </div>
+ <script>
+        $(document).ready(function() {
+            $('.bigText-container .bigText').bigtext({
+                // minfontsize:60
+            });
+        });
+        </script>
 <script src="../assets/js/lory.min.js"></script>
 <script>
 document.addEventListener('DOMContentLoaded', function() {
