@@ -116,7 +116,7 @@ html {
     padding-top: 1.5rem;
 }
 
-#content h1.poster-content {
+/*#content h1.poster-content {
     font-family: 'grotroughregular', sans-serif;
     line-height: 1;
     text-align: center;
@@ -129,7 +129,7 @@ html {
     margin: 0;
     padding: 0;
 }
-
+*/
 #content a {
     color: #da5a47;
     text-decoration: none;
@@ -336,10 +336,6 @@ html {
     width: 75%;
 }
 
-.canvas-container {
-    position: relative;
-}
-
 .half {
     width: 50%;
 }
@@ -365,14 +361,13 @@ html {
 }
 
 /*****  REQUIRED FOR SLABTEXT.JS *****/
-.slabtexted .slabtext
-    {
+.slabtexted .slabtext {
     display: -moz-inline-box;
     display: inline-block;
     white-space: nowrap;
-    }
-.slabtextinactive .slabtext
-    {
+}
+
+.slabtextinactive .slabtext {
     display: inline;
     white-space: normal;
     font-size: 1em !important;
@@ -380,28 +375,50 @@ html {
     word-spacing: inherit !important;
     *letter-spacing: normal !important;
     *word-spacing: normal !important;
-    }
-.slabtextdone .slabtext
-    {
+}
+
+.slabtextdone .slabtext {
     display: block;
-    }   
+}   
+
+.canvas-container {
+    position: relative;
+    margin-bottom: 1rem;
+}
+
+#content .canvas-container a {
+    color: black;
+}
+
+#content .canvas-container a:hover {
+    text-decoration: none;
+    color: white;
+}
+
+.poster {
+    width: 100%;
+}
 
 .bigText-container {
-    position: absolute;
     font-family: 'grotroughregular', sans-serif;
     line-height: 1;
+    padding: 1.5rem 1rem;
     text-align: center;
     text-transform: uppercase;
-    height: 90%;
-    width: 90%;
+    height: 100%;
+    min-height: 460px;
+    width: 100%;
+    -webkit-box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
+    -moz-box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
+    box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
 }
 
 .bigText-container .bigText {
-    line-height: 1;
-    -moz-text-size-adjust: 100%;
-    -ms-text-size-adjust: 100%;
-    -webkit-text-size-adjust: 100%;
-    width: 100%;
+    flex-grow: 1;
+    line-height: .9;
+    -moz-text-size-adjust: 90%;
+    -ms-text-size-adjust: 90%;
+    -webkit-text-size-adjust: 90%;
 }
 
 .bigText-container .bigText p {
