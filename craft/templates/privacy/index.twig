@@ -1,0 +1,18 @@
+
+
+{% extends "_layout" %} 
+{% set title = "lukespurrallen.com Privacy Policy" %} 
+
+{% block content %}
+<h1 class="page-title">lukespurrallen.com Privacy Policy</h1>
+<div class="basic-block flex space-between">
+    <div>
+        {% for entry in craft.entries.section('privacyPolicy') %}
+        <article>
+            {{ entry.body }}
+        </article>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
+ 
