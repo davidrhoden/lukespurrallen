@@ -1,14 +1,3 @@
-{#
- # Layout template
- # ---------------
- #
- # This template defines your site’s global layout. It can be
- # “extended” by other templates to fill in the gaps.
- #
- # See Twig’s Template Inheritance documentation for more details:
- # http://twig.sensiolabs.org/doc/templates.html#template-inheritance
- #}
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en-US">
 <head>
@@ -18,12 +7,13 @@
 	<meta name="viewport" content="width=device-width">
 	{% include '_includes/_stylesheets' %}
 	{% include '_includes/_favicons' %}
-	    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+	{% include '_includes/_fbsdk' %}
+	{% hook 'seomaticRender' %}
+	<meta name="google-site-verification" content="j4jaUmU8CKTksVP6vpaUiMhIA77GCOMp5mejmAZVbYc" />
 </head>
 
 <body>
-{% include '_includes/_ga' %}
-{% include '_includes/_svg' %}
 	<div id="container">
 		<header id="header">
 			<h1><a href="{{ siteUrl }}">{{ siteName }}</a></h1>
@@ -32,8 +22,7 @@
 
 		<main id="content" role="main">
 			{% block content %}
-				<p>If you see me, you haven’t set your <code>{% verbatim %}{% block content %}…{% endblock %}{% endverbatim %}</code> yet.</p>
-				<p>See Twig’s <a href="http://twig.sensiolabs.org/doc/templates.html#template-inheritance">Template Inheritance</a> documentation for an explanation.</p>
+
 			{% endblock %}
 		</main>
 

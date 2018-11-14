@@ -1,6 +1,6 @@
-{# # News entry template # ------------------- # # See this page for more details on how Craft routes requests: # http://craftcms.com/docs/routing #} 
-
-{% extends "_layout" %} {% block content %}
+{% extends "_layout" %} 
+{% set title = "Luke Spurr Allen : #{ entry.title }" %}
+{% block content %}
 <div class="recording-block">
     <article class="flex space-between">
         <div class="third">
@@ -13,6 +13,7 @@
             <div class="recordings-page text-align-center">
                 <div class="youtube-player" data-id="{{ entry.embedCode }}"></div>
             </div>
+            {% include "_includes/_sharebutton" %}
         </div>
         <div class="recording-text two-third">
             <h1>{{ entry.title }}</h1>
@@ -39,4 +40,19 @@
 	{% endfor %}
 	<script src="../assets/js/youtube-player.js "></script>
 	</div>
+    {% set musicAlbumJsonLd = {
+    type: "MusicAlbum",
+    name: entry.title | escape('html_attr'),
+    image: entry.albumArt.first().url |default(seomaticMeta.seoImage),
+    description: entry.albumDescription | escape('html_attr'),
+    url: seomaticMeta.canonicalUrl,
+    albumProductionType: 'studio album',
+    datePublished: entry.postDate.iso8601(),
+    sameAs: [entryDownloadLink]
+} %}
+{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"author": seomaticIdentity}) %}
+{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"creator": seomaticIdentity}) %}
+{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"byArtist": seomaticIdentity}) %}
+{{ musicAlbumJsonLd | renderJSONLD }}
+{# sameAs: entry.amazonLink, entry.appleMusicLink, entry.itunesLink, entry.spotifyLink] #}
 {% endblock %}

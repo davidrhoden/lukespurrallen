@@ -52,7 +52,7 @@
                 {# <div> #}
                     {% set image = showEntry.showArt.first() %} 
                     {% if image %}
-                    	<img src="{{ image.getUrl('oneHundredSixtyPxWide') }}" alt="image.title" /> 
+                    	<img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title" /> 
                         {% else %}
                         <div class="home canvas-container flex center align-items-center">
                             <div id="poster{{ (loop.index) -1 }}" class="poster">
@@ -74,9 +74,9 @@
                     {% endif %}
                 {# </div> #}
             {# </div> #}
-                {% if showEntry.body %}
+                {% if showEntry.title %}
                     <hr>
-                    {{ showEntry.body|length > 300 ? showEntry.body|slice(0, 300) ~ '...' : showEntry.body }} 
+                    {# showEntry.title #} 
                 {% endif %}
             <div class="paper-separator"></div>
              {% else %}
