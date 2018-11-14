@@ -22,9 +22,9 @@
                     <p>{{ entry.body }}</p>
                 </article>
             </div>
-            <div class="third">
+            <div class="two-third">
                 {% for asset in entry.showArt %}
-                <img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %}
+                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %}
             </div>
         </div>
     </div> 
