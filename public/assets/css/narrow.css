@@ -12,7 +12,7 @@
 	flex-wrap: nowrap;
 }
 
-.third, .two-third, .third img, .two-third img, .press-text img {
+.third, .two-third, .sixforty, .third img, .two-third img, .press-text img {
 	width: 100%;
 }
 
@@ -50,6 +50,10 @@
     width: 100%;
 }
 
-.bigText-container {
-    min-height: 400px;
+.canvas-container.home .poster {
+    min-height: 360px;
+}
+
+.canvas-container.shows-index .poster, .canvas-container.shows-entry .poster {
+    min-height: 360px;
 }

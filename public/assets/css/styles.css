@@ -1,9 +1,9 @@
 @font-face {
-    font-family: '../webfonts/KatahdinRound-Bold';
+    font-family: 'KatahdinRound-Bold';
     src: url('../webfonts/KatahdinRound-Bold.eot'); /* IE9 Compat Modes */
     src: url('../webfonts/KatahdinRound-Bold.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-        url('../webfonts/KatahdinRound-Bold.woff2') format('woff2'), /* Super Modern Browsers */
-        url('../webfonts/KatahdinRound-Bold.woff') format('woff'), /* Pretty Modern Browsers */
+        url('../webfonts/katahdinround-bold-webfont.woff2') format('woff2'), /* Super Modern Browsers */
+        url('../webfonts/katahdinround-bold-webfont.woff') format('woff'), /* Pretty Modern Browsers */
         url('../webfonts/KatahdinRound-Bold.ttf')  format('truetype'), /* Safari, Android, iOS */
         url('../webfonts/KatahdinRound-Bold.svg#KatahdinRound-Bold') format('svg'); /* Legacy iOS */
     font-weight: normal;
@@ -44,7 +44,7 @@ html {
 #footer {
     display: block;
     color: #000;
-    font-family: 'KatahdinRound-Bold', sans-serif;
+    font-family: 'KatahdinRound-Bold', 'grotroughregular', sans-serif;
     text-transform: uppercase;
 }
 
@@ -105,7 +105,7 @@ html {
 }
 
 #content h1 {
-    font-family: 'KatahdinRound-Bold', sans-serif;
+    font-family: 'KatahdinRound-Bold', 'grotroughregular', sans-serif;
     margin-top: 0;
     font-size: 35px;
     font-weight: bold;
@@ -352,6 +352,10 @@ html {
     width: 64%;
 }
 
+.sixforty {
+    width: 640px;
+}
+
 .text-align-center {
     text-align: center;
 }
@@ -396,25 +400,32 @@ html {
 }
 
 .poster {
-    width: 100%;
-}
-
-.bigText-container {
-    font-family: 'grotroughregular', sans-serif;
-    line-height: 1;
-    padding: 1.5rem 1rem;
-    text-align: center;
-    text-transform: uppercase;
-    height: 100%;
-    min-height: 460px;
+    display: flex; 
+    align-items: center;
     width: 100%;
     -webkit-box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
     -moz-box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
     box-shadow: 4px 4px 6px 0px rgba(0,0,0,0.2);
 }
 
+.canvas-container.home .poster {
+    min-height: 480px;
+}
+
+.canvas-container.shows-index .poster, .canvas-container.shows-entry .poster {
+    min-height: 525px;
+}
+
+.bigText-container {
+    font-family: 'grotroughregular', sans-serif;
+    padding: 1rem;
+    text-align: center;
+    text-transform: uppercase;
+    height: 100%;
+    width: 100%;
+}
+
 .bigText-container .bigText {
-    flex-grow: 1;
     line-height: .9;
     -moz-text-size-adjust: 90%;
     -ms-text-size-adjust: 90%;
@@ -425,4 +436,25 @@ html {
     margin: 0;
     padding: 0;
 }
-         
+
+.staple {
+    background: url(../images/site/staple.png) center center no-repeat;
+    height: 16px;
+    width: 16px;
+    position: absolute;
+    top: 3%;
+    z-index: 2
+}
+
+.staple.bottom {
+    top: inherit;
+    bottom: 2%;
+}
+
+.staple.left {
+    left: 3%;
+}   
+
+.staple.right {
+    right: 3%;
+}    
