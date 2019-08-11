@@ -55,5 +55,12 @@ return array(
       'baseUrl'  => 'http://lukespurrallen.com/',
     ),
     'omitScriptNameInUrls' => true,
+  ),
+    'lukespurrallen.xyz' => array(
+      'environmentVariables' => array(
+          'basePath' => '/home/forge/lukespurrallen.xyz/public/',
+          'baseUrl'  => '//lukespurrallen.xyz/',
+      ),
+      'devMode' => true,
   )
 );

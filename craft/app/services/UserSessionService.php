@@ -432,13 +432,7 @@ class UserSessionService extends \CWebUser
 
 			if (!craft()->request->isAjaxRequest())
 			{
-				$url = craft()->request->getPath();
-
-				if (($queryString = craft()->request->getQueryStringWithoutPath()))
-				{
-					$url .= '?'.$queryString;
-				}
-
+				$url = UrlHelper::getUrl(craft()->request->getPath(), craft()->request->getQueryStringWithoutPath());
 				$this->setReturnUrl($url);
 				$url = UrlHelper::getUrl(craft()->config->getLoginPath());
 				craft()->request->redirect($url);
@@ -504,10 +498,25 @@ class UserSessionService extends \CWebUser
 		{
 			$this->_identity = new UserIdentity($username, $password);
 
-			// Did we authenticate?
-			if ($this->_identity->authenticate())
+			// Fire an 'onBeforeAuthenticate' event
+			$event = new Event($this, array(
+				'identity' => $this->_identity,
+				'rememberMe' => $rememberMe,
+			));
+
+			$this->onBeforeAuthenticate($event);
+
+			// Should we continue authenticating?
+			if ($event->performAction)
 			{
-				return $this->loginByUserId($this->_identity->getUserModel()->id, $rememberMe, true);
+				// Did we authenticate?
+				if ($this->_identity->authenticate())
+				{
+					// In the case we have got a new value for the 'rememberMe'
+					$rememberMe = $event->params['rememberMe'];
+
+					return $this->loginByUserId($this->_identity->getUserModel()->id, $rememberMe, true);
+				}
 			}
 		}
 
@@ -516,7 +525,7 @@ class UserSessionService extends \CWebUser
 	}
 
 	/**
-	 * Logs a user in for solely by their user ID.
+	 * Logs a user in by their user ID.
 	 *
 	 * This method doesn’t have any sort of credential verification, so use it at your own peril.
 	 *
@@ -703,6 +712,16 @@ class UserSessionService extends \CWebUser
 	 */
 	public function getLoginErrorMessage($errorCode, $loginName)
 	{
+		// Set the default error message.
+		if (craft()->config->get('useEmailAsUsername'))
+		{
+			$error = Craft::t('Invalid email or password.');
+		}
+		else
+		{
+			$error = Craft::t('Invalid username or password.');
+		}
+
 		switch ($errorCode)
 		{
 			case UserIdentity::ERROR_PASSWORD_RESET_REQUIRED:
@@ -712,31 +731,40 @@ class UserSessionService extends \CWebUser
 			}
 			case UserIdentity::ERROR_ACCOUNT_LOCKED:
 			{
-				$error = Craft::t('Account locked.');
+				// If this is set, let it fallback to default:.
+				if (!craft()->config->get('preventUserEnumeration'))
+				{
+					$error = Craft::t('Account locked.');
+				}
+
 				break;
 			}
 			case UserIdentity::ERROR_ACCOUNT_COOLDOWN:
 			{
-				$user = craft()->users->getUserByUsernameOrEmail($loginName);
-
-				if ($user)
+				if (!craft()->config->get('preventUserEnumeration'))
 				{
-					$timeRemaining = $user->getRemainingCooldownTime();
+					$user = craft()->users->getUserByUsernameOrEmail($loginName);
 
-					if ($timeRemaining)
+					if ($user)
 					{
-						$humanTimeRemaining = $timeRemaining->humanDuration();
-						$error = Craft::t('Account locked. Try again in {time}.', array('time' => $humanTimeRemaining));
+						$timeRemaining = $user->getRemainingCooldownTime();
+
+						if ($timeRemaining)
+						{
+							$humanTimeRemaining = $timeRemaining->humanDuration();
+							$error = Craft::t('Account locked. Try again in {time}.', array('time' => $humanTimeRemaining));
+						}
+						else
+						{
+							$error = Craft::t('Account locked.');
+						}
 					}
 					else
 					{
 						$error = Craft::t('Account locked.');
 					}
 				}
-				else
-				{
-					$error = Craft::t('Account locked.');
-				}
+
 				break;
 			}
 			case UserIdentity::ERROR_ACCOUNT_SUSPENDED:
@@ -763,18 +791,6 @@ class UserSessionService extends \CWebUser
 			{
 				$error = Craft::t('Account has not been activated.');
 				break;
-			}
-			default:
-			{
-				if (craft()->config->get('useEmailAsUsername'))
-				{
-					$error = Craft::t('Invalid email or password.');
-				}
-				else
-				{
-					$error = Craft::t('Invalid username or password.');
-				}
-
 			}
 		}
 
@@ -1010,7 +1026,6 @@ class UserSessionService extends \CWebUser
 	{
 		return !(
 			craft()->request->isGetRequest() &&
-			craft()->request->isCpRequest() &&
 			craft()->request->getParam('dontExtendSession')
 		);
 	}
@@ -1204,6 +1219,18 @@ class UserSessionService extends \CWebUser
 
 	// Events
 	// -------------------------------------------------------------------------
+
+	/**
+	 * Fires an 'onBeforeAuthenticate' event.
+	 *
+	 * @param Event $event
+	 *
+	 * @return null
+	 */
+	public function onBeforeAuthenticate(Event $event)
+	{
+		$this->raiseEvent('onBeforeAuthenticate', $event);
+	}
 
 	/**
 	 * Fires an 'onBeforeLogin' event.
