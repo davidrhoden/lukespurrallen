@@ -61,6 +61,7 @@ return array(
           'basePath' => '/home/forge/lukespurrallen.xyz/public/',
           'baseUrl'  => '//lukespurrallen.xyz/',
       ),
+      'omitScriptNameInUrls' => true,
       'devMode' => true,
   )
 );
