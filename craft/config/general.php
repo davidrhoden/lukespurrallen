@@ -27,7 +27,7 @@ return array(
           'baseUrl'  => '//lukespurrallen.com/',
       ),
       'omitScriptNameInUrls' => true,
-      'devMode' => true,
+      'devMode' => false,
   ),
     'lukespurrallen.xyz' => array(
       'environmentVariables' => array(
