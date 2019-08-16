@@ -20,7 +20,6 @@ return array(
     'omitScriptNameInUrls' => true,
   ),
 
-  // Use IP address of your droplet below
     'lukespurrallen.com' => array(
       'environmentVariables' => array(
           'basePath' => '/home/forge/lukespurrallen.com/public/',
