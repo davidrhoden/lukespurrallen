@@ -1,7 +1,7 @@
-craft/app
 craft/storage
 db.php
 public/assets/images
 craft/plugins/seomatic
 *.zip
 .DS_Store
+
