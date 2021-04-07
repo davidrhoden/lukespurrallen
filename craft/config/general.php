@@ -12,7 +12,7 @@ return array(
     'devMode' => true,
     'siteUrl' => 'http://lukespurrallen.local/',
     'environmentVariables' => array(
-      'basePath' => '/users/davidrhoden/htdocs/lukespurrallen/public/',
+      'basePath' => '/Applications/MAMP/htdocs/lukespurrallen/',
       'baseUrl'  => 'http://lukespurrallen.local/',
 
     ),
@@ -22,18 +22,10 @@ return array(
 
     'lukespurrallen.com' => array(
       'environmentVariables' => array(
-          'basePath' => '/home/forge/lukespurrallen.com/public/',
+          'basePath' => '/home/forge/lukespurrallen.com/',
           'baseUrl'  => '//lukespurrallen.com/',
       ),
       'omitScriptNameInUrls' => true,
       'devMode' => false,
-  ),
-    'lukespurrallen.xyz' => array(
-      'environmentVariables' => array(
-          'basePath' => '/home/forge/lukespurrallen.xyz/public/',
-          'baseUrl'  => '//lukespurrallen.xyz/',
-      ),
-      'omitScriptNameInUrls' => true,
-      'devMode' => true,
   )
 );
