@@ -4,4 +4,4 @@ public/assets/images
 craft/plugins/seomatic
 *.zip
 .DS_Store
-
+logs
