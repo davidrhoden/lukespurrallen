@@ -111,20 +111,6 @@ html {
     padding-top: 1.5rem;
 }
 
-/*#content h1.poster-content {
-    font-family: 'grotroughregular', sans-serif;
-    line-height: 1;
-    text-align: center;
-    text-transform: uppercase;
-    width: 90%;
-    position: absolute;
-}
-
-#content h1.poster-content p, #content h1.poster-content span {
-    margin: 0;
-    padding: 0;
-}
-*/
 #content a {
     color: #da5a47;
     text-decoration: none;
