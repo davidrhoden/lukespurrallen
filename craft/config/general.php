@@ -22,7 +22,7 @@ return array(
 
     'lukespurrallen.com' => array(
       'environmentVariables' => array(
-          'basePath' => '/home/forge/lukespurrallen.com/',
+          'basePath' => '/home/forge/lukespurrallen.com/public/',
           'baseUrl'  => '//lukespurrallen.com/',
       ),
       'omitScriptNameInUrls' => true,
