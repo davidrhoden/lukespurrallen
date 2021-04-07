@@ -40,19 +40,4 @@
 	{% endfor %}
 	<script src="../assets/js/youtube-player.js "></script>
 	</div>
-    {% set musicAlbumJsonLd = {
-    type: "MusicAlbum",
-    name: entry.title | escape('html_attr'),
-    image: entry.albumArt.first().url |default(seomaticMeta.seoImage),
-    description: entry.albumDescription | escape('html_attr'),
-    url: seomaticMeta.canonicalUrl,
-    albumProductionType: 'studio album',
-    datePublished: entry.postDate.iso8601(),
-    sameAs: [entryDownloadLink]
-} %}
-{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"author": seomaticIdentity}) %}
-{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"creator": seomaticIdentity}) %}
-{% set musicAlbumJsonLd = musicAlbumJsonLd | merge({"byArtist": seomaticIdentity}) %}
-{{ musicAlbumJsonLd | renderJSONLD }}
-{# sameAs: entry.amazonLink, entry.appleMusicLink, entry.itunesLink, entry.spotifyLink] #}
 {% endblock %}
