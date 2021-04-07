@@ -1,0 +1,75 @@
+#container {
+	 width: 96%;
+}   
+
+.basic-block, .show-block, .press-block {
+    padding: 2rem 1rem;
+}
+
+.recording-block {
+    padding: 1rem;
+}
+
+.two-third {
+    width: 60%;
+}
+
+.home-block {
+    padding: .25rem;
+}
+
+.home-block img {
+	width: 100%;
+}
+
+.press-index {
+    line-height: 1.1;
+    padding: 2rem;
+    flex: 0 2 auto;
+    width: 100%;
+}
+
+.press-title {
+    line-height: 1.1;
+}
+
+.recordings-index {    
+	background: rgba(255,255,255, .8);
+    border: 1px dotted brown;
+    font-size: .9rem;
+    line-height: 1.5;
+    margin: 1.5rem 0;
+    padding: 1rem 1.5rem;
+}
+
+.recordings-index.space-between {   
+	justify-content: space-around;
+}
+
+.recordings-index img { 
+	margin: .75rem 0;
+}  
+
+.recording-text p, .recording-text li, .lyrics p {
+    width: 100%;
+}
+
+.home-block.third {
+    width: 100%;
+}
+
+.title {
+    width: 100%;
+}
+
+.flex.space-between {
+    justify-content: space-around;
+}
+
+.flex.space-between article {
+    width: 100%;
+}
+
+.flex.space-between article img {
+    width: 100%;
+}
