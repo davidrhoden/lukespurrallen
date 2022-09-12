@@ -12,7 +12,7 @@ return array(
     'devMode' => true,
     'siteUrl' => 'http://lukespurrallen.local/',
     'environmentVariables' => array(
-      'basePath' => '/Applications/MAMP/htdocs/lukespurrallen/public/',
+      'basePath' => '/Applications/MAMP/htdocs/lukespurrallen/',
       'baseUrl'  => 'http://lukespurrallen.local/',
 
     ),
