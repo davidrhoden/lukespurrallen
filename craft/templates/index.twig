@@ -93,7 +93,7 @@
             {# </div> #}
                 {% if showEntry.title %}
                     <hr>
-                    {# <a href="{{ url('shows') }}">{{ showEntry.date | date("M d, Y") }}<br>{{ showEntry.lineUp }}</a> #}
+                    {% <a href="{{ url('shows') }}">{{ showEntry.date | date("M d, Y") }}<br>{{ showEntry.lineUp }}</a> %}
                 {% endif %}
             <div class="paper-separator"></div>
              {% else %}
@@ -108,6 +108,7 @@
 </div>
  <script>
         $(document).ready(function() {
+            console.log("document ready!");
             $('.bigText-container .bigText').bigtext({
                 // minfontsize:60
             });
@@ -117,7 +118,7 @@
 <script>
 document.addEventListener('DOMContentLoaded', function() {
     var simple = document.querySelector('.js_simple');
-
+    console.log("DOMContentLoaded!");
     lory(simple, {
         infinite: 1
     });
