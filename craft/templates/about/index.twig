@@ -32,6 +32,16 @@
             </div>
          </div>
     </div>
+    {% block javascripts %}
+    {% verbatim %}
+    <script>
+        $(document).ready(function() {
+
+            $('.bigText-container .bigText').bigtext({
+                // minfontsize:60
+            });
+        });
+    </script>
     <script src="../assets/js/lory.min.js"></script>
     <script>
     document.addEventListener('DOMContentLoaded', function() {
@@ -42,5 +52,7 @@
         });
     });
     </script>
+    {% endverbatim %}
+    {% endblock javascripts %}
 {% endblock %}
  
