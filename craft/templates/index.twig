@@ -104,26 +104,24 @@
         </div>
     </div>
 </div>
-    {% block javascripts %}
-    {% verbatim %}
-    <script>
-        $(document).ready(function() {
 
-            $('.bigText-container .bigText').bigtext({
-                // minfontsize:60
-            });
-        });
-    </script>
-    <script src="../assets/js/lory.min.js"></script>
-    <script>
-    document.addEventListener('DOMContentLoaded', function() {
-        var simple = document.querySelector('.js_simple');
+<script>
+    $(document).ready(function() {
 
-        lory(simple, {
-            infinite: 1
+        $('.bigText-container .bigText').bigtext({
+            // minfontsize:60
         });
     });
-    </script>
-    {% endverbatim %}
-    {% endblock javascripts %}
+</script>
+<script src="../assets/js/lory.min.js"></script>
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    var simple = document.querySelector('.js_simple');
+
+    lory(simple, {
+        infinite: 1
+    });
+});
+</script>
+
 {% endblock %}
