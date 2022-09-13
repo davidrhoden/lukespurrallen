@@ -111,22 +111,26 @@
         </div>
     </div>
 </div>
-<script>
+    {% block javascripts %}
+    {% verbatim %}
+    <script>
         $(document).ready(function() {
 
             $('.bigText-container .bigText').bigtext({
                 // minfontsize:60
             });
         });
-        </script>
-<script src="../assets/js/lory.min.js"></script>
-<script>
-document.addEventListener('DOMContentLoaded', function() {
-    var simple = document.querySelector('.js_simple');
+    </script>
+    <script src="../assets/js/lory.min.js"></script>
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        var simple = document.querySelector('.js_simple');
 
-    lory(simple, {
-        infinite: 1
+        lory(simple, {
+            infinite: 1
+        });
     });
-});
-</script>
+    </script>
+    {% endverbatim %}
+    {% endblock javascripts %}
 {% endblock %}
