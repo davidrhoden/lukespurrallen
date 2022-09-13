@@ -17,7 +17,7 @@
 body {
     margin: 0px;
     font-family: 'Domine', serif;
-    background: #ccaa7a url(../images/site/textured_paper.jpg) left top repeat;
+    background: #ccaa7a url(../images/site/textured_paper.png) left top repeat;
 }
 
 html { 
@@ -232,7 +232,7 @@ html {
 } 
 
 .paper-separator{
-    background: url(../images/site/textured_paper_c2780e.jpg) left top repeat;
+    background: url(../images/site/textured_paper.png) left top repeat;
     height: .2rem;
     margin: 1rem 0;
 }
