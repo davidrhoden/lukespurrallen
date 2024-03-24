@@ -2,7 +2,8 @@
 {% set title = "Luke Spurr Allen : Shows" %} 
 {% block content %}
     <h1 class="page-title">Shows</h1>
-    {% for entry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %}
+    {# {% for entry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %} #}
+    {% for entry in craft.entries.find({ section:'shows', limit'3' , order:'date'}) %}
     <div class="show-block">
         <div class="full-width">
             <h2>{{ entry.date | date("F d, Y")}}</h2>
