@@ -11,7 +11,7 @@
 {% block content %}
 	<div class="show-block flex space-around">
 		<div class="full-width">
-			<h2>{{ entry.date | date("F d, Y")}}</h2>
+			<h2>{{ entry.date | date("F j, Y")}}</h2>
 			<hr>
 		</div>
 		<div class="third">
@@ -28,7 +28,7 @@
 		</div>
 	    <div class="sixforty">
 	    	{% for asset in entry.showArt %}
-            <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.lineUp|replace({'<p>': ' ', '</p>': ' '}) }} {{ entry.date | date(" M n, Y ") }}" /> {% endfor %}
+            <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.lineUp|replace({'<p>': ' ', '</p>': ' '}) }} {{ entry.date | date(" M j, Y ") }}" /> {% endfor %}
             <div class="shows-index canvas-container flex center align-items-center">
                 <div id="poster{{ (loop.index) -1 }}" class="poster">
                         <div class="staple left" id="left{{ (loop.index) -1 }}"></div>
@@ -36,7 +36,7 @@
                     <div class="bigText-container">
                         <div class="bigText">{{ entry.lineUp }}</div>
                         <div class="bigText"><p>{{ entry.venue.first() }}</p></div>
-                        <div class="bigText"><p>{{ entry.date | date("M d, Y") }}</p></div>
+                        <div class="bigText"><p>{{ entry.date | date("M j, Y") }}</p></div>
                         <div class="bigText"><p>{{ entry.time | date("g:i a") }}</p></div>
                     </div>
                 </div>

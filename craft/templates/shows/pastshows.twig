@@ -36,7 +36,7 @@
                                 <a href="{{ url('shows') }}">
                                 <div class="bigText">{{ showEntry.lineUp }}</div>
                                 <div class="bigText"><p>{{ entry.venue.first() }}</p></div>
-                                <div class="bigText"><p>{{ entry.date | date("M n, Y") }}</p></div>
+                                <div class="bigText"><p>{{ entry.date | date("M j, Y") }}</p></div>
                                 <div class="bigText"><p>{{ entry.time | date("g:i a") }}</p></div>
                                 </a>
                             </div>
@@ -54,7 +54,7 @@
                                 <a href="{{ url('shows') }}">
                                 <div class="bigText">{{ entry.lineUp }}</div>
                                 <div class="bigText"><p>{{ entry.venue.first() }}</p></div>
-                                <div class="bigText"><p>{{ entry.date | date("M d, Y") }}</p></div>
+                                <div class="bigText"><p>{{ entry.date | date("M j, Y") }}</p></div>
                                 <div class="bigText"><p>{{ entry.time | date("g:i a") }}</p></div>
                                 </a>
                             </div>
