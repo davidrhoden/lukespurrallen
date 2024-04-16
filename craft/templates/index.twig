@@ -6,7 +6,7 @@
             <ul class="slides js_slides">
                 {% for asset in entry.photos %}
                 <li class="js_slide">
-                    <img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" />
+                    <img src="{{ asset.getUrl('twelveHundredEightyPxWide') }}" alt="poster for Happy Talk Band Show">
                 </li>
                 {% endfor %}
             </ul>
@@ -30,7 +30,7 @@
             <div class="text-align-center">
                 {% set record = entry.record.first() %}
                     {% for asset in record.albumArt %}
-                        <p><a href="{{ record.url }}"><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" /></a></p>
+                        <p><a href="{{ record.url }}"><img class="albumart" src="{{ asset.getUrl('threeHundredTwentyPxWide') }}" alt="Happy Talk record sleeve art"></a></p>
                     {% endfor %}
                    <p>Hear the new album, <i>Pothole Heart</i></p>
                 </div>
@@ -39,7 +39,7 @@
         <div class="home-block third">
              <div class="inset-border">
             <h2> Shows</h2>
-            {% for showEntry in craft.entries.find({ section:'shows', limit:1 , order:'date DESC' }) %}
+            {% for showEntry in craft.entries.find({ section:'shows', limit:3 , order:'date DESC' }) %}
             {# <div class="flex center"> #}
             {# <div>
                     <a href="{{ showEntry.url }}" class="services-entry-wrap">
