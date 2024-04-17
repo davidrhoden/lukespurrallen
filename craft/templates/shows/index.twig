@@ -28,11 +28,10 @@
 
                 {% for asset in entry.showArt %}
 
-                    {% if asset.image %}
+                
                         <div class="shows-index canvas-container flex center align-items-center">
                             <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F j, Y ") }}" /> {% endfor %}
                         </div>
-                    {% else %}
                         <div class="shows-index canvas-container flex center align-items-center">
                             <div id="poster{{ (loop.index) -1 }}" class="poster">
                                 <div class="staple left" id="left{{ (loop.index) -1 }}"></div>
@@ -50,7 +49,6 @@
                             <script src="../../assets/js/poster.js"></script>
                             <script>makePoster();</script>
                         </div>
-                    {% endif %}
 
                 {% endfor %}
 
