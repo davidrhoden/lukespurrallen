@@ -28,10 +28,10 @@
 
                 {% for asset in entry.showArt %}
 
-                
                         <div class="shows-index canvas-container flex center align-items-center">
                             <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F j, Y ") }}" /> {% endfor %}
                         </div>
+                        
                         <div class="shows-index canvas-container flex center align-items-center">
                             <div id="poster{{ (loop.index) -1 }}" class="poster">
                                 <div class="staple left" id="left{{ (loop.index) -1 }}"></div>
@@ -52,9 +52,9 @@
 
                 {% endfor %}
 
-            </div>
-        </div>
-    </div> 
+            </div><!-- end sixforty -->
+        </div><!-- end flex space-between -->
+    </div> <!-- end show-block -->
     {% endfor %}
 
     <div class="pastshows-link">
