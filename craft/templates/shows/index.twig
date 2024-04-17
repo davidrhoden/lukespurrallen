@@ -28,7 +28,7 @@
 
                 {% for asset in entry.showArt %}
 
-                    {% if entry.image %}
+                    {% if asset.image %}
                         <div class="shows-index canvas-container flex center align-items-center">
                             <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F j, Y ") }}" /> {% endfor %}
                         </div>
