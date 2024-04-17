@@ -1,8 +1,9 @@
 {% extends "_layout" %} 
-{% set title = "Luke Spurr Allen : Shows" %} 
+{% set title = "Luke Spurr Allen/Happy Talk Band : Shows" %} 
 {% block content %}
     <h1 class="page-title">Shows</h1>
     {# {% for entry in craft.entries.find({ section:'shows', date : ">= " ~ now.w3cDate() , order:'date'}) %} #}
+
     {% for entry in craft.entries.find({ section:'shows', limit:'3' , order:'date DESC'}) %}
     <div class="show-block">
         <div class="full-width">
@@ -24,35 +25,14 @@
                 </article>
             </div>
             <div class="sixforty">
-                {% for asset in entry.showArt %}
-                {% if image %}
-                    <div class="shows-index canvas-container flex center align-items-center">
-                        <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F j, Y ") }}" /> {% endfor %}
-                    </div>
-                {% else %}
-                    <div class="shows-index canvas-container flex center align-items-center">
-                    <div id="poster{{ (loop.index) -1 }}" class="poster">
-                        <div class="staple left" id="left{{ (loop.index) -1 }}"></div>
-                        <div class="staple right" id="right{{ (loop.index) -1 }}"></div>
-                        <div class="staple bottom left" id="bottomleft{{ (loop.index) -1 }}"></div>
-                        <div class="staple bottom right" id="bottomright{{ (loop.index) -1 }}"></div>
-                        <div class="bigText-container">
-                            <div class="bigText">{{ entry.lineUp }}</div>
-                            <div class="bigText"><p>{{ entry.venue.first() }}</p></div>
-                            <div class="bigText"><p>{{ entry.date | date("M j, Y") }}</p></div>
-                            <div class="bigText"><p>{{ entry.time | date("g:i a") }}</p></div>
-                        </div>
-                    </div>
 
-                    <script src="../assets/js/bigtext.js"></script>
-                    <script src="../assets/js/poster.js"></script>
-                    <script>makePoster();</script>
-                </div>
-                {% endif %}
-            </div>
-        </div>
-    </div> 
+
+
+            </div><!-- end sixforty -->
+        </div><!-- end flex space-between -->
+    </div> <!-- end show-block -->
     {% endfor %}
+
     <div class="pastshows-link">
         <a href="{{ url('pastshows') }}">see past shows</a>
     </div>
