@@ -24,11 +24,9 @@
             </div>
             <div class="two-third">
                 {% for asset in entry.showArt %}
-                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" />
-
-                 {% set image = showEntry.showArt.first() %} 
+                {% set image = showEntry.showArt.first() %}
                     {% if image %}
-                        <img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title" /> 
+                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" />
                     {% else %}
                         <div class="home canvas-container flex center align-items-center">
                             <div id="poster{{ (loop.index) -1 }}" class="poster">
