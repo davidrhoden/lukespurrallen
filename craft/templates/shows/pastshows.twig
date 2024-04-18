@@ -5,7 +5,7 @@
     {% for entry in craft.entries.find({ section:'shows', date : "<= " ~ now.w3cDate() , order:'date desc'}) %}
     <div class="show-block">
         <div class="full-width">
-            <h2>{{ entry.date | date("F d, Y")}}</h2>
+            <h2>{{ entry.date | date("F j, Y")}}</h2>
             <hr>
         </div>
         <div class="flex space-between">
@@ -15,7 +15,7 @@
                     <h2>{{ entry.lineUp }}</h2>
                     <p>{{ entry.time |date("g:i a") }}
                     {% if entry.cover|length %}
-                    , {{ entry.cover }}
+                    , ${{ entry.cover }}
                         {% endif %}
                     </p>
                     <hr>
@@ -24,10 +24,10 @@
             </div>
             <div class="two-third">
                 {% for asset in entry.showArt %}
-                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %} #}
+                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" />
+                {% endfor %}
                  {% set image = showEntry.showArt.first() %} 
                     {% if image %}
-                    HELLO
                         <img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title" /> 
                     {% else %}
                         <div class="home canvas-container flex center align-items-center">
