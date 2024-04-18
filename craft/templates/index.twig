@@ -51,7 +51,8 @@
                 {# <div> #}
                     {% set image = showEntry.showArt.first() %}
                     {% if image %}
-                        <a href="{{ url('shows') }}"><img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title"></a>
+                        <div class="home canvas-container flex center align-items-center">
+                            <a href="{{ url('shows') }}"><img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title"></a>
                         </div>
                         {% else %}
                         <div class="home canvas-container flex center align-items-center">
