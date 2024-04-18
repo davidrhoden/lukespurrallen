@@ -40,7 +40,7 @@
              <div class="inset-border">
             <h2> Shows</h2>
             {% for showEntry in craft.entries.find({ section:'shows', limit:3 , order:'date DESC' }) %}
-            {# <div class="flex center"> #}
+            <div class="flex center">
             {# <div>
                     <a href="{{ showEntry.url }}" class="services-entry-wrap">
                         <h3>{{ showEntry.date | date("M d, Y") }}<br>
@@ -48,7 +48,7 @@
                     </a>
                     {{ showEntry.time | date("g:i a") }}
                 </div> #}
-                {# <div> #}
+                <div>
                     {% set image = showEntry.showArt.first() %}
                     {% if image %}
                         <div class="home canvas-container flex center align-items-center">
@@ -72,11 +72,11 @@
                         <script>makePoster();</script>
                         </div>
                     {% endif %}
-                {# </div> #}
-            {# </div> #}
+                </div>
+            </div>
                 {% if showEntry.title %}
                     <hr>
-                    {# <a href="{{ url('shows') }}">{{ showEntry.date | date("M d, Y") }}<br>{{ showEntry.lineUp }}</a> #}
+                    <a href="{{ url('shows') }}">{{ showEntry.date | date("M d, Y") }}<br>{{ showEntry.lineUp }}</a>
                 {% endif %}
             <div class="paper-separator"></div>
              {% else %}
