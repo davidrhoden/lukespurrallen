@@ -25,7 +25,7 @@
             <div class="two-third">
                 {% for asset in entry.showArt %}
                 <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" />
-                {% endfor %}
+
                  {% set image = showEntry.showArt.first() %} 
                     {% if image %}
                         <img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title" /> 
@@ -47,6 +47,7 @@
                         <script>makePoster();</script>
                         </div>
                     {% endif %}
+                {% endfor %}
                 </div>
             </div>
         </div>
