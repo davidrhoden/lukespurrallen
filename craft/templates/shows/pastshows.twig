@@ -27,6 +27,7 @@
                 <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F d, Y ") }}" /> {% endfor %} #}
                  {% set image = showEntry.showArt.first() %} 
                     {% if image %}
+                    HELLO
                         <img src="{{ image.getUrl('threeHundredTwentyPxWide') }}" alt="image.title" /> 
                     {% else %}
                         <div class="home canvas-container flex center align-items-center">
