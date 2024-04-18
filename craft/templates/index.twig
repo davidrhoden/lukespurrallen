@@ -74,11 +74,6 @@
                     {% endif %}
                 </div>
             </div>
-                {% if showEntry.title %}
-                    <hr>
-                    <a href="{{ url('shows') }}">{{ showEntry.date | date("M d, Y") }}<br>{{ showEntry.lineUp }}</a>
-                {% endif %}
-            <div class="paper-separator"></div>
              {% else %}
                     <p>Watch this space for upcoming shows.</p>
                     <div class="pastshows-link">
