@@ -6,7 +6,7 @@
     {% for entry in craft.entries.find({ section:'shows', limit:'3' , order:'date DESC'}) %}
     <div class="show-block">
         <div class="full-width">
-            <h2>{{ entry.date | date("F n, Y")}}</h2>
+            <h2>{{ entry.date | date("F j, Y")}}</h2>
             <hr>
         </div>
         <div class="flex space-between">
@@ -14,8 +14,8 @@
                 <article>
                     <h1><a href="{{ entry.venue.first().website }}" target="_blank">{{ entry.venue.first() }}</a></h1>
                     <h2>{{ entry.lineUp }}</h2>
-                    <p>{{ entry.time |date("g:i a") }}
-                    {% if entry.cover|length %}
+                    <p>{{ entry.time | date("g:i a") }}
+                    {% if entry.cover| length %}
                     , {{ entry.cover }}
                         {% endif %}
                     </p>
@@ -26,7 +26,7 @@
             <div class="sixforty">
                  {% set image = showEntry.showArt.first() %}
                     {% if image %}
-                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(" F j, Y ") }}" />
+                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date('F j, Y') }}" />
                     {% else %}
                 <div class="shows-index canvas-container flex center align-items-center">
                     <div id="poster{{ (loop.index) -1 }}" class="poster">
