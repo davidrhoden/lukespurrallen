@@ -1,0 +1,59 @@
+#container {
+	 width: 96%;
+}  
+
+#content h1 {
+    font-size: 1.4rem; 
+    line-height: 1.2;
+}
+
+.flex {
+	display: block;
+	flex-wrap: nowrap;
+}
+
+.third, .two-third, .sixforty, .sixforty img, .third img, .two-third img, .press-text img {
+	width: 100%;
+}
+
+#header nav ul {
+     display: block; 
+}   
+
+.basic-block h1, .show-block h1 {
+	margin: 0;
+}
+
+.basic-block h2, .show-block h2  {
+	font-size: 1.1rem;
+	margin: 0;
+}
+
+.basic-block h2 ~ p {
+		margin-top: 0;
+}
+
+.press-divider {
+	border-bottom: 1px dotted indianred;
+	margin: .75rem 0 1.25rem;
+}
+
+.press-title {
+	padding: 1rem;
+}
+
+.press-text p {
+    width: 100%;
+}
+
+.recording-text p, .recording-text li, .lyrics p {
+    width: 100%;
+}
+
+.canvas-container.home .poster {
+    min-height: 360px;
+}
+
+.canvas-container.shows-index .poster, .canvas-container.shows-entry .poster {
+    min-height: 360px;
+}
