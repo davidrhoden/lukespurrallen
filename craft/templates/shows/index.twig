@@ -24,9 +24,9 @@
                 </article>
             </div>
             <div class="sixforty">
-                 {% set image = showEntry.showArt.first() %}
+                 {% set image = entry.showArt.first() %}
                     {% if image %}
-                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date('F j, Y') }}" />
+                <img class="albumart" src="{{ image.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date('F j, Y') }}" />
                     {% else %}
                 <div class="shows-index canvas-container flex center align-items-center">
                     <div id="poster{{ (loop.index) -1 }}" class="poster">

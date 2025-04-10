@@ -8,24 +8,23 @@
  */
 
 return array(
-  'lukespurrallen.local' => array(
-    'devMode' => true,
-    'siteUrl' => 'http://lukespurrallen.local/',
-    'environmentVariables' => array(
-      'basePath' => '/Applications/MAMP/htdocs/lukespurrallen/',
-      'baseUrl'  => 'http://lukespurrallen.local/',
-
-    ),
-    'testToEmailAddress' => 'david@davidrhoden.com',
+  '*' => array(
     'omitScriptNameInUrls' => true,
+    'devMode' => true,
+    'displayErrorDetails' => true,
   ),
-
-    'lukespurrallen.com' => array(
-      'environmentVariables' => array(
-          'basePath' => '/home/forge/lukespurrallen.com/',
-          'baseUrl'  => '//lukespurrallen.com/',
-      ),
-      'omitScriptNameInUrls' => true,
-      'devMode' => true,
+  'lukespurrallen.test' => array(
+    'siteUrl' => 'https://lukespurrallen.test/',
+    'environmentVariables' => array(
+      'basePath' => '/Users/davidrhoden/Sites/lukespurrallen',
+      'baseUrl'  => 'https://lukespurrallen.test/',
+    ),
+  ),
+  'lukespurrallen.com' => array(
+    'environmentVariables' => array(
+      'basePath' => '/home/forge/lukespurrallen.com/',
+      'baseUrl'  => '//lukespurrallen.com/',
+    ),
+    'omitScriptNameInUrls' => true,
   )
 );
