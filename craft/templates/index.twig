@@ -42,8 +42,8 @@
         <div class="home-block third">
              <div class="inset-border">
             <h2> Shows</h2>
-            {% for showEntry in craft.entries.find({ section:'shows', limit:3 , order:'date DESC' }) %}
-            <div class="flex center">
+            {% for showEntry in craft.entries.find({ section:'shows', limit:3 , order:'date ASC' }) %}
+            <div>
                 <div>
                     <a href="{{ showEntry.url }}" class="services-entry-wrap">
                         <h3>{{ showEntry.date | date("M d, Y") }}<br>
