@@ -1,7 +1,6 @@
+document_root: public
 integrations:
   forge:
     lukespurrallen.com:
       server-id: 305340
       site-id: 829249
-
-document_root: public
