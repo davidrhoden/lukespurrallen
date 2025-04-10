@@ -3,7 +3,7 @@
 
 	Options +FollowSymlinks -MultiViews -Indexes   
 
-	RewriteBase /
+	RewriteBase /public/
 
 	# Send would-be 404 requests to Craft
 	RewriteCond %{REQUEST_FILENAME} !-f
