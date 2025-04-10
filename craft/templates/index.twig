@@ -42,7 +42,7 @@
         <div class="home-block third">
              <div class="inset-border">
             <h2> Shows</h2>
-            {% for showEntry in craft.entries.find({ section:'shows', limit:3 , order:'date ASC' }) %}
+            {% for showEntry in craft.entries.find({ section:'shows', limit:3 , date : '>=' ~ now, order:'date ASC' }) %}
             <div>
                 <div>
                     <a href="{{ showEntry.url }}" class="services-entry-wrap">
