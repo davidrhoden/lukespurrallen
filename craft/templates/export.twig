@@ -1,0 +1,3 @@
+{% set lessons = craft.entries.section('shows').asArray().all() %}
+
+{{ lessons | json_encode | raw }}
