@@ -1,20 +1,22 @@
-{% for entry in craft.entries.section('shows') %}
+<p style=font-family: monospace;>
+  {% for entry in craft.entries.section('shows') %}
 
----
-date: {{ entry.date | date("F j, Y")}}
-venue: {{ entry.venue.first() }}
-lineup: {{ entry.lineUp }}
-start_time: {{ entry.time | date("g:i a") }}
+---<br>
+date: {{ entry.date | date("F j, Y")}}<br>
+venue: {{ entry.venue.first() }}<br>
+lineup: {{ entry.lineUp }}<br>
+start_time: {{ entry.time | date("g:i a") }}<br>
 {% if entry.cover| length %}
-cover: {{ entry.cover }}
+cover: {{ entry.cover }}<br>
 {% endif %}
 
-image: {% set image = entry.showArt.first() %}
+image: {% set image = entry.showArt.first() %}<br>
 
----
+---<br>
 {% if image %}
-<img class="albumart" src="{{ image.getUrl('sixHundredFortyPxWide') }}">
+<img class="albumart" src="{{ image.getUrl('sixHundredFortyPxWide') }}"><br>
 {% endif %}
 
 {{ entry.body | raw}}
 {% endfor %}
+</p>
