@@ -3,15 +3,17 @@
 <p style="font-family: monospace;">
 ---<br>
 
-  date: {{ entry.date | date("F j, Y")}}<br>
-  venue: {{ entry.venue.first() }}<br>
-  lineup: {{ entry.lineUp }}<br>
-  start_time: {{ entry.time | date("g:i a") }}<br>
-  cover: {{ entry.cover }}<br>
-  image: {% set image = entry.showArt.first() %}<br>
+date: {{ entry.date | date("F j, Y")}}<br>
+venue: {{ entry.venue.first() }}<br>
+lineup: {{ entry.lineUp }}<br>
+start_time: {{ entry.time | date("g:i a") }}<br>
+cover: {{ entry.cover }}<br>
+image: {% set image = entry.showArt.first() %}<br>
 
 ---<br>
 
 {{ entry.body | raw}}
 </p>
 {% endfor %}
+
+xxx
