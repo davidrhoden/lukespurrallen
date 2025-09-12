@@ -1,6 +1,6 @@
 
 {% for entry in craft.entries.section('shows') %}
-<p style="font-family: monospace;">
+<p>
 ---<br>
 
 date: {{ entry.date | date("F j, Y")}}<br>
@@ -9,6 +9,7 @@ lineup: {{ entry.lineUp }}<br>
 start_time: {{ entry.time | date("g:i a") }}<br>
 cover: {{ entry.cover }}<br>
 image: {% set image = entry.showArt.first() %}<br>
+image: {{ entry.getUrl('sixHundredFortyPxWide') }}<br>
 
 ---<br>
 

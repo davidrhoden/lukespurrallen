@@ -2,17 +2,17 @@
 {% set title = "Luke Spurr Allen : All Shows" %}
 {% block content %}
     {% for entry in craft.entries.find({ section:'shows', limit:'3' , order:'date DESC'}) %}
-
-<h2>{{ entry.date | date("F j, Y")}}</h2>
-{ entry.venue.first() }}
-<h2>{{ entry.lineUp }}</h2>
-<p>{{ entry.time | date("g:i a") }}
-{% if entry.cover| length %}
-, {{ entry.cover }}
-{% endif %}
- <p>{{ entry.body }}</p>
-{% set image = entry.showArt.first() %}
-{% if image %}
-{{ image.getUrl('sixHundredFortyPxWide') }}"
-{% endif %}
+        <h2>{{ entry.date | date("F j, Y")}}</h2>
+        {{ entry.venue.first() }}
+        <h2>{{ entry.lineUp }}</h2>
+        <p>{{ entry.time | date("g:i a") }}
+        {% if entry.cover| length %}
+        , {{ entry.cover }}
+        {% endif %}
+         <p>{{ entry.body }}</p>
+        {% set image = entry.showArt.first() %}
+        {% if image %}
+            {{ image.getUrl('sixHundredFortyPxWide') }}
+        {% endif %}
+    {% endfor %}
 {% endblock %}
