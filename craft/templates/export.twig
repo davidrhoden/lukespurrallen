@@ -8,12 +8,11 @@ venue: {{ entry.venue.first() }}<br>
 lineup: {{ entry.lineUp }}<br>
 start_time: {{ entry.time | date("g:i a") }}<br>
 cover: {{ entry.cover }}<br>
-{# image: {% set image = entry.showArt.first() %}<br> #}
-image: {{ entry.getUrl('sixHundredFortyPxWide') }}<br>
+image: {{ entry.showArt.first().getUrl('sixHundredFortyPxWide') }}<br>
 
 ---<br>
 
 {{ entry.body | raw}}
 </p>
-xxx
+
 {% endfor %}
