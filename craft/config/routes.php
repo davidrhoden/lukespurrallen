@@ -19,5 +19,5 @@
  */
 
 return array(
-
+  'exports/shows.json' => 'exports/shows-json',
 );
