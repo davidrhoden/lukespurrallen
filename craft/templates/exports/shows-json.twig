@@ -11,7 +11,8 @@
     "slug": {{ entry.slug|json_encode|raw }},
     "title": {{ entry.title|json_encode|raw }},
     "date": {{ (entry.date ? entry.date|date('c') : null)|json_encode|raw }},
-    "time": {{ (entry.time ? entry.time|date('H:i') : null)|json_encode|raw }},
+    "startTime": {{ (entry.time ? entry.time|date('H:i') : null)|json_encode|raw }},
+    "endTime": {{ (entry.endTime ? entry.endTime|date('H:i') : null)|json_encode|raw }},
     "venue": {
       "name": {{ (venue ? venue.title : null)|json_encode|raw }},
       "website": {{ (venue and venue.website ? venue.website : null)|json_encode|raw }}
@@ -20,7 +21,6 @@
     "cover": {{ (entry.cover ?: null)|json_encode|raw }},
     "bodyHtml": {{ (entry.body ?: '')|json_encode|raw }},
     "image": {
-      "url640": {{ (image ? image.getUrl('sixHundredFortyPxWide') : null)|json_encode|raw }},
       "filename": {{ (image ? image.filename : null)|json_encode|raw }}
     }
   }{% if not loop.last %},{% endif %}
