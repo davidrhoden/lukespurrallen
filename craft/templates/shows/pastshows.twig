@@ -3,6 +3,7 @@
 {% block content %}
     <h1>Shows</h1>
     {% for entry in craft.entries.find({ section:'shows', date : "<= " ~ now.w3cDate() , order:'date desc'}) %}
+    {% set venue = entry.venue.first() %}
     <div class="show-block">
         <div class="full-width">
             <h2>{{ entry.date | date("F j, Y")}}</h2>
@@ -11,7 +12,13 @@
         <div class="flex space-between">
             <div class="third">
                 <article>
-                    <h1><a href="{{ entry.venue.first().website }}" target="_blank">{{ entry.venue.first() }}</a></h1>
+                    <h1>
+                        {% if venue and venue.website %}
+                            <a href="{{ venue.website }}" target="_blank">{{ venue }}</a>
+                        {% elseif venue %}
+                            {{ venue }}
+                        {% endif %}
+                    </h1>
                     <h2>{{ entry.lineUp }}</h2>
                     <p>{{ entry.time |date("g:i a") }}
                     {% if entry.cover|length %}
@@ -24,7 +31,7 @@
             </div>
             <div class="two-third">
                 {% for asset in entry.showArt %}
-                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ entry.venue.first() }} {{ entry.date | date(' F d, Y ') }}" />
+                <img class="albumart" src="{{ asset.getUrl('sixHundredFortyPxWide') }}" alt="{{ (venue ? venue.title : '') }} {{ entry.date | date(' F d, Y ') }}" />
                 {% endfor %}
                  {% set image = entry.showArt.first() %}
                     {% if image %}
