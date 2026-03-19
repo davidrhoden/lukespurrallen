@@ -10,17 +10,19 @@
 return array(
   '*' => array(
     'omitScriptNameInUrls' => true,
-    'devMode' => true,
-    'displayErrorDetails' => true,
   ),
   'lukespurrallen.test' => array(
     'siteUrl' => 'https://lukespurrallen.test/',
+    'devMode' => true,
+    'displayErrorDetails' => true,
     'environmentVariables' => array(
       'basePath' => '/Users/davidrhoden/Sites/lukespurrallen',
       'baseUrl'  => 'https://lukespurrallen.test/',
     ),
   ),
   'lukespurrallen.com' => array(
+    'devMode' => false,
+    'displayErrorDetails' => false,
     'environmentVariables' => array(
       'basePath' => '/home/forge/lukespurrallen.com/',
       'baseUrl'  => '//lukespurrallen.com/',
